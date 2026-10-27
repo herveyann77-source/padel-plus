@@ -1,6 +1,6 @@
 // Padel+ : fonctionne aussi sans connexion (au club, sans wifi).
 // Connecté : la dernière version est toujours chargée tout de suite. Tes données ne sont jamais touchées ici.
-const VERSION = "padel-plus-v399";
+const VERSION = "padel-plus-v402";
 const FILES = ["./", "index.html", "manifest.webmanifest", "apple-touch-icon.png", "icon-192.png", "icon-512.png"];
 const XLSX_URL = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
 self.addEventListener("install", e => {
