@@ -1,6 +1,6 @@
 // Padel+ : fonctionne aussi sans connexion (au club, sans wifi).
 // Ouverture instantanée depuis la copie de l'appareil ; chaque nouvelle version (VERSION ci-dessous) s'installe en arrière-plan puis l'appli se recharge seule. Tes données ne sont jamais touchées ici.
-const VERSION = "padel-plus-v476";
+const VERSION = "padel-plus-v477";
 const FILES = ["./", "index.html", "manifest.webmanifest", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable.png"];
 const XLSX_URL = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
 self.addEventListener("install", e => {
