@@ -1,0 +1,46 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Padel+ · Envoyer le score</title><meta name="robots" content="noindex"><meta name="theme-color" content="#141c4a">
+<style>
+:root{--ink:#141c4a;--lime:#b6ef2a;--blue:#2a4bc4;--tx:#141c4a;--mu:#5a6690;--line:#dfe4f3}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:-apple-system,system-ui,"Segoe UI",Roboto,sans-serif;color:var(--tx);background:#eef1fb;display:flex;justify-content:center;padding:18px 14px 40px}
+.c{width:100%;max-width:480px}.hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}.hd img{width:52px;height:52px;border-radius:14px}.hd b{font-size:22px}.hd small{display:block;color:var(--mu);font-weight:600;font-size:14px}
+.box{background:#fff;border-radius:20px;padding:18px;box-shadow:0 10px 30px rgba(20,28,74,.10)}
+h1{font-size:21px;margin:0 0 6px}p{margin:0 0 12px;color:var(--mu);line-height:1.45}
+.lab{display:inline-block;background:#eef1fb;color:var(--mu);font-weight:800;font-size:13px;border-radius:99px;padding:4px 12px;margin-bottom:10px}
+.b{display:block;width:100%;border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:17px;font-weight:800;margin:0 0 10px;background:#fff;color:var(--tx);cursor:pointer;text-align:left;line-height:1.35}
+.b small{display:block;color:var(--mu);font-weight:700;font-size:13px}.b:active{transform:scale(.98)}
+.go{background:var(--lime);border-color:var(--lime);color:var(--ink);text-align:center;font-size:19px}.ln{background:none;border:0;color:var(--mu);font-size:15px;text-align:center;font-weight:700}
+.set{margin:14px 0}.set h3{margin:0 0 8px;font-size:15px;color:var(--mu)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tm{border:2px solid var(--line);border-radius:14px;padding:10px}.tm.me{border-color:var(--blue);background:#eaf0ff}
+.tm b{display:block;font-size:13px;line-height:1.3;min-height:34px}.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:8px}
+.nums button{border:0;border-radius:10px;padding:10px 0;font-size:18px;font-weight:900;background:#eef1fb;color:var(--tx)}.nums button.on{background:var(--ink);color:var(--lime)}
+.sum{font-size:30px;font-weight:900;text-align:center;margin:10px 0}.big{font-size:56px;text-align:center;margin:4px 0}.err{color:#c92a2a;font-weight:700}
+.ft{text-align:center;color:var(--mu);font-size:12px;margin-top:16px}
+</style></head><body><div class="c"><div class="hd"><img src="icon-192.png" alt=""><div><b>Padel+</b><small id="tt">Envoyer le score</small></div></div><div class="box" id="m"><p>Chargement…</p></div><div class="ft">Le juge-arbitre peut toujours corriger le score.</div></div>
+<script>
+const Q=new URLSearchParams(location.search),$=id=>document.getElementById(id),m=$("m");
+const ref=Q.get("r")||"",own=Q.get("o")||"",court=+(Q.get("c")||0),ck=Q.get("ck")||"",key=Q.get("k")||"";
+const esc=x=>String(x??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const API="https://"+ref+".supabase.co/rest/v1/",H={"apikey":key,"Authorization":"Bearer "+key,"Content-Type":"application/json"};
+let D=null,team=null,SC=[];
+const sentK=pk=>"pp_sc_"+pk;
+async function load(){if(!ref||!own||!court||!ck||!key){m.innerHTML='<h1>QR code incomplet</h1><p class="err">Ce QR code ne fonctionne pas. Donne ton score au juge-arbitre.</p>';return}
+m.innerHTML="<p>Chargement…</p>";
+try{const r=await fetch(API+"rpc/court_get",{method:"POST",headers:H,body:JSON.stringify({o:own,c:court,kk:ck})});if(!r.ok)throw new Error("Erreur "+r.status);D=await r.json()}catch(e){m.innerHTML='<h1>Pas de connexion</h1><p class="err">'+esc(e.message)+'</p><button class="b go" onclick="load()">Réessayer</button>';return}
+$("tt").textContent="Piste "+court+(D&&D.t?" · "+D.t:"");
+if(!D||D.none||!D.pk){m.innerHTML='<div class="big">🎾</div><h1>Piste '+court+'</h1><p>Aucun match en cours sur cette piste pour l’instant.<br>Le juge-arbitre doit d’abord lancer votre match.</p><button class="b go" onclick="load()">🔄 Actualiser</button>';return}
+let done=null;try{done=localStorage.getItem(sentK(D.pk))}catch(e){}if(done)return thanks(true);
+pick()}
+function pick(){m.innerHTML='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Quelle est ton équipe ?</h1><p>Touche <b>ton</b> équipe.</p>'+[0,1].map(i=>'<button class="b" onclick="choose('+i+')">'+(D[i?"b":"a"]||[]).map(esc).join("<br>")+'</button>').join("")+'<button class="b ln" onclick="load()">🔄 Ce n’est pas notre match</button>'}
+function choose(i){team=i;SC=Array.from({length:D.n||1},()=>["",""]);draw()}
+function nums(s,x){const mx=(D.mx||[9])[s]??9,v=SC[s][x];let h="";for(let k=0;k<=mx;k++)h+='<button class="'+(String(k)===v?"on":"")+'" onclick="setv('+s+','+x+','+k+')">'+k+'</button>';return h}
+function setv(s,x,k){SC[s][x]=String(k);draw()}
+function draw(){const n=D.n||1;let h='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Le score</h1><p>Touche le nombre de jeux de chaque équipe.</p>';
+for(let s=0;s<n;s++){h+='<div class="set">'+(n>1?'<h3>'+esc((D.sl||[])[s]||("Set "+(s+1)))+'</h3>':'')+'<div class="row">'+[0,1].map(x=>'<div class="tm'+(x==team?" me":"")+'"><b>'+(D[x?"b":"a"]||[]).map(esc).join("<br>")+(x==team?" <span style=\"color:#2a4bc4\">(vous)</span>":"")+'</b><div class="nums">'+nums(s,x)+'</div></div>').join("")+'</div></div>'}
+const okS=SC.filter(q=>q[0]!==""&&q[1]!=="");h+='<div class="sum">'+(okS.length?okS.map(q=>q[0]+" - "+q[1]).join("  "):"–")+'</div>';
+h+='<button class="b go" id="gb" onclick="send()" '+(okS.length?"":"disabled style=\"opacity:.45\"")+'>✅ Envoyer ce score</button><button class="b ln" onclick="pick()">← Changer d’équipe</button>';m.innerHTML=h}
+async function send(){const sc=SC.filter(q=>q[0]!==""&&q[1]!=="").map(q=>[+q[0],+q[1]]);if(!sc.length)return;const b=$("gb");b.disabled=true;b.textContent="Envoi…";
+try{const r=await fetch(API+"padel_score",{method:"POST",headers:{...H,"Prefer":"return=minimal"},body:JSON.stringify({owner:own,court,k:ck,pk:D.pk,team,sc})});if(!r.ok)throw new Error("Erreur "+r.status);
+try{localStorage.setItem(sentK(D.pk),JSON.stringify(sc))}catch(e){}thanks(false,sc)}catch(e){b.disabled=false;b.textContent="✅ Réessayer";m.insertAdjacentHTML("beforeend",'<p class="err">Le score n’est pas parti ('+esc(e.message)+'). Vérifie ta connexion et réessaie, ou donne-le au juge-arbitre.</p>')}}
+function thanks(again,sc){m.innerHTML='<div class="big">✅</div><h1>'+(again?"Score déjà envoyé":"Merci, score envoyé !")+'</h1><p>Il sera validé dès que l’autre équipe aura envoyé <b>le même score</b>. Sinon, le juge-arbitre tranchera.</p><button class="b ln" onclick="try{localStorage.removeItem(sentK(D.pk))}catch(e){};pick()">✏️ Corriger notre envoi</button>'}
+load();
+</script></body></html>

@@ -1,0 +1,84 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Padel+ · En direct</title><meta name="robots" content="noindex"><meta name="theme-color" content="#141c4a">
+<style>
+:root{--ink:#141c4a;--lime:#b6ef2a;--blue:#2a4bc4;--tx:#141c4a;--mu:#5a6690;--line:#dfe4f3;--ok:#2e9e5b}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;min-height:100vh;font-family:-apple-system,system-ui,"Segoe UI",Roboto,sans-serif;color:var(--tx);background:#eef1fb;padding:0 0 90px}
+.top{background:var(--ink);color:#fff;padding:14px 16px 16px;position:sticky;top:0;z-index:5}
+.top .w{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:12px}.top img{width:42px;height:42px;border-radius:12px;flex:none}
+.top b{display:block;font-size:17px;line-height:1.25}.top small{display:block;color:#c6d0f5;font-weight:600;font-size:13px;margin-top:2px}
+.c{max-width:560px;margin:0 auto;padding:14px}
+.box{background:#fff;border-radius:18px;padding:16px;box-shadow:0 8px 24px rgba(20,28,74,.08);margin:0 0 14px}
+h1{font-size:20px;margin:0 0 6px}h2{font-size:15px;margin:0 0 10px;color:var(--mu);text-transform:uppercase;letter-spacing:.06em}p{margin:0 0 10px;color:var(--mu);line-height:1.45}
+.nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;line-height:1.35}.nm b{font-weight:800}
+.sr{width:100%;font-size:17px;padding:13px 14px;border:2px solid var(--line);border-radius:14px;margin:0 0 10px;outline:0}.sr:focus{border-color:var(--blue)}
+.pl{display:flex;align-items:center;gap:10px;width:100%;border:2px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;margin:0 0 8px;font-size:16px;color:var(--tx);text-align:left;cursor:pointer}
+.pl .nm{flex:1;min-width:0}.pl small{color:var(--mu);font-weight:700;font-size:13px;flex:none}.pl.ar{opacity:.55}
+.go{display:block;width:100%;border:0;border-radius:16px;padding:15px;font-size:18px;font-weight:900;background:var(--lime);color:var(--ink);cursor:pointer;margin:6px 0 0}
+.ln{display:block;width:100%;border:0;background:none;color:var(--mu);font-size:15px;font-weight:700;padding:12px;cursor:pointer}
+.nx{background:var(--ink);color:#fff;border-radius:18px;padding:16px;margin:0 0 14px}
+.nx .tg{display:inline-block;background:var(--lime);color:var(--ink);font-weight:900;font-size:13px;border-radius:99px;padding:4px 11px;margin-bottom:8px}.nx .tg.live{background:#ff5a5a;color:#fff}
+.nx .wh{font-size:24px;font-weight:900;margin:2px 0 10px}.nx .vs{color:#c6d0f5;font-size:13px;font-weight:700;margin:8px 0 4px}.nx .nm{font-size:16px}.nx p{color:#c6d0f5;margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed}th{color:var(--mu);font-size:12px;font-weight:800;text-align:center;padding:4px 2px}th.l,td.l{text-align:left}
+td{padding:8px 2px;border-top:1px solid var(--line);text-align:center;vertical-align:middle}td.l .nm{font-size:14px}tr.me td{background:#eaf0ff}tr.me td:first-child{box-shadow:inset 4px 0 0 var(--blue)}
+tr.q td:first-child{color:var(--ok);font-weight:900}
+.pg{display:flex;align-items:center;gap:8px;margin:0 0 6px}.pg span{background:var(--ink);color:var(--lime);font-weight:900;border-radius:10px;padding:4px 10px;font-size:15px}
+.m{border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin:0 0 8px;background:#fff}
+.mh{display:flex;justify-content:space-between;gap:8px;color:var(--mu);font-size:12px;font-weight:800;margin-bottom:6px}.mh .lv{color:#e03131}
+.mr{display:flex;align-items:center;gap:8px}.mr .nm{flex:1;min-width:0;font-size:14px}.mr .sc{font-weight:900;font-size:15px;flex:none;min-width:24px;text-align:right}.mr.w .nm b{color:var(--ok)}.mr+.mr{margin-top:4px}.mr .tm{flex:1;min-width:0}
+.mine{border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue)}
+.vd{font-size:12px;font-weight:900;border-radius:7px;padding:2px 7px;flex:none}.vd.v{background:#dcf5e5;color:var(--ok)}.vd.d{background:#fde2e2;color:#c92a2a}
+.nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:center;padding:6px 6px calc(6px + env(safe-area-inset-bottom));z-index:6}
+.nav .w{display:flex;max-width:560px;width:100%}.nav button{flex:1;border:0;background:none;padding:8px 2px;font-size:12px;font-weight:800;color:var(--mu);cursor:pointer}.nav button i{display:block;font-style:normal;font-size:20px}.nav button.on{color:var(--blue)}
+.upd{text-align:center;color:var(--mu);font-size:12px;margin:4px 0 0}.err{color:#c92a2a;font-weight:700}.big{font-size:54px;text-align:center;margin:4px 0}
+.chip{display:inline-block;border:2px solid var(--line);border-radius:99px;padding:6px 12px;font-weight:800;font-size:14px;margin:0 6px 6px 0;background:#fff;color:var(--tx);cursor:pointer}.chip.on{background:var(--ink);border-color:var(--ink);color:var(--lime)}
+</style></head><body>
+<div class="top"><div class="w"><img src="icon-192.png" alt=""><div style="min-width:0"><b id="tt">Padel+ · En direct</b><small id="st">Chargement…</small></div></div></div>
+<div class="c" id="m"><div class="box"><p>Chargement…</p></div></div>
+<div class="nav" id="nav" style="display:none"><div class="w"></div></div>
+<script>
+const Q=new URLSearchParams(location.search),$=id=>document.getElementById(id),m=$("m");
+const ref=Q.get("r")||"",pid=Q.get("i")||"",key=Q.get("k")||"",G0=(Q.get("g")||"").toUpperCase(),CI=Q.get("in")=="1";
+const esc=x=>String(x??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nz=x=>String(x||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+const H={"apikey":key,"Authorization":"Bearer "+key,"Content-Type":"application/json"},RPC="https://"+ref+".supabase.co/rest/v1/rpc/";
+const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}},LW=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+let D=null,me=LS("pl_me_"+pid),view=me?"me":(G0?"pools":"pick"),pq="",ciDone=LS("pl_ci_"+pid),gSel=G0,loadErr="",lastOk=0;
+if(CI&&!ciDone)view="ci";
+async function load(){if(!ref||!pid||!key){m.innerHTML='<div class="box"><h1>QR code incomplet</h1><p class="err">Demande le lien au juge-arbitre.</p></div>';return}
+try{const r=await fetch(RPC+"padel_live_get",{method:"POST",headers:H,body:JSON.stringify({pid})});if(!r.ok)throw new Error("Erreur "+r.status);const d=await r.json();if(!d||!d.T)throw new Error("Le tournoi n’est pas encore en ligne.");D=d;loadErr="";lastOk=Date.now()}catch(e){loadErr=e.message}draw()}
+const pn=(t,k)=>{const p=D.T[t]&&D.T[t][k=="a"?0:1];return p?`<span class="nm"><b>${esc(p[0])}</b> ${esc(p[1])}</span>`:""};
+const team=t=>t==null||t<0||!D.T[t]?'<span class="nm" style="color:var(--mu)">à déterminer</span>':pn(t,"a")+pn(t,"b");
+const myM=()=>me?D.M.filter(x=>x.a==me.t||x.b==me.t):[];
+const poolOf=t=>D.G.find(g=>g.r.some(r=>r[0]==t));
+function players(){const L=[];D.T.forEach((T,t)=>{if(T[2])return;["a","b"].forEach((k,j)=>{const p=T[j];if(!p||!(p[0]||p[1]))return;const g=poolOf(t);L.push({t,k,n:p[0],f:p[1],ar:T[3+j],g:g?g.n:"",key:nz(p[0]+" "+p[1]+" "+p[1]+" "+p[0])})})});return L.sort((a,b)=>a.n.localeCompare(b.n,"fr"))}
+function pickList(mode){const L=players(),q=nz(pq).trim(),F=q?L.filter(x=>q.split(/\s+/).every(w=>x.key.includes(w))):L;
+return `<input class="sr" id="sr" placeholder="Tape ton nom…" value="${esc(pq)}" oninput="pq=this.value;document.getElementById('pl').innerHTML=pickRows('${mode}')" autocomplete="off" autocorrect="off" spellcheck="false"><div id="pl">${pickRows(mode)}</div>`}
+function pickRows(mode){const L=players(),q=nz(pq).trim(),F=q?L.filter(x=>q.split(/\s+/).every(w=>x.key.includes(w))):L;if(!F.length)return '<p>Personne avec ce nom. Vérifie l’orthographe ou demande au juge-arbitre.</p>';
+return F.slice(0,60).map(x=>`<button class="pl${mode=="ci"&&x.ar?" ar":""}" onclick="choose(${x.t},'${x.k}','${mode}')"><span class="nm"><b>${esc(x.n)}</b> ${esc(x.f)}</span><small>${mode=="ci"&&x.ar?"✓ déjà arrivé":x.g?"Poule "+x.g:""}</small></button>`).join("")}
+async function choose(t,k,mode){me={t,k};LW("pl_me_"+pid,me);if(mode=="ci"){const T=D.T[t],p=T[k=="a"?0:1];if(T[k=="a"?3:4]){ciDone=1;LW("pl_ci_"+pid,1);view="me";draw();return}
+m.innerHTML='<div class="box"><h1>'+esc(p[1]+" "+p[0])+'</h1><p>C’est bien toi ?</p><button class="go" id="cb" onclick="checkin()">✅ Oui, je suis arrivé</button><button class="ln" onclick="me=null;view=\'ci\';draw()">← Ce n’est pas moi</button></div>';return}
+view="me";draw();scrollTo(0,0)}
+async function checkin(){const b=$("cb");b.disabled=true;b.textContent="Envoi…";try{const r=await fetch(RPC+"padel_checkin_add",{method:"POST",headers:H,body:JSON.stringify({pid,tt:me.t,pp:me.k})});if(!r.ok)throw new Error("Erreur "+r.status);const ok=await r.json();if(ok===false)throw new Error("Le pointage n’est pas ouvert.");ciDone=1;LW("pl_ci_"+pid,1);
+m.innerHTML='<div class="box" style="text-align:center"><div class="big">✅</div><h1>Bienvenue !</h1><p>Le juge-arbitre sait que tu es là. Bon tournoi !</p><button class="go" onclick="view=\'me\';draw()">Voir mon tournoi</button></div>'}catch(e){b.disabled=false;b.textContent="✅ Réessayer";m.insertAdjacentHTML("beforeend",'<p class="err" style="text-align:center">'+esc(e.message)+' Préviens le juge-arbitre.</p>')}}
+function mcard(x,hl){const lab=(x.st=="c"?'<span class="lv">● EN COURS</span>':x.st=="f"?"Terminé":x.h?"Vers "+x.h:"")+(x.p?" · Piste "+x.p:"");const sc=x.s?x.s.split(" "):[];
+const row=(t,i)=>`<div class="mr${x.w===i?" w":""}"><div class="tm">${team(t)}</div><span class="sc">${sc.map(s=>s.split("-")[i]).join(" ")}</span></div>`;
+return `<div class="m${hl?" mine":""}"><div class="mh"><span>${esc(x.l)}</span><span>${lab}</span></div>${row(x.a,0)}${row(x.b,1)}</div>`}
+function ptable(g){const tm=me?me.t:-1;return `<div class="box"><div class="pg"><span>Poule ${esc(g.n)}</span></div><table><colgroup><col style="width:9%"><col><col style="width:9%"><col style="width:9%"><col style="width:12%"><col style="width:11%"></colgroup><tr><th></th><th class="l">Équipe</th><th>J</th><th>V</th><th>+/-</th><th>Pts</th></tr>${g.r.map((r,k)=>`<tr class="${r[0]==tm?"me":""}${r[5]?" q":""}"><td>${k+1}</td><td class="l">${team(r[0])}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]>0?"+"+r[3]:r[3]}</td><td><b>${r[4]}</b></td></tr>`).join("")}</table>${D.q?`<p style="margin:8px 0 0;font-size:13px">En vert : place${D.q>1?"s":""} qualificative${D.q>1?"s":""} pour le tableau.</p>`:""}</div>`}
+function vMe(){if(!me||!D.T[me.t])return(view="pick",vPick());const L=myM(),nx=L.filter(x=>x.st!="f"&&x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0).sort((a,b)=>(a.st=="c"?-1:0)-(b.st=="c"?-1:0)||String(a.h||"99").localeCompare(String(b.h||"99")))[0],g=poolOf(me.t),p=D.T[me.t][me.k=="a"?0:1];
+let h=`<div class="box" style="display:flex;align-items:center;gap:10px;padding:12px 14px"><div style="flex:1;min-width:0"><span class="nm" style="font-size:17px"><b>${esc(p[0])}</b> ${esc(p[1])}</span></div><button class="chip" style="margin:0" onclick="me=null;LW('pl_me_'+pid,null);view='pick';draw()">Changer</button></div>`;
+if(nx){const op=nx.a==me.t?nx.b:nx.a,pa=me.t==nx.a?nx.a:nx.b;h+=`<div class="nx"><span class="tg${nx.st=="c"?" live":""}">${nx.st=="c"?"● EN COURS":"TON PROCHAIN MATCH"}</span><div class="wh">${nx.st=="c"?(nx.p?"Piste "+nx.p:"En cours"):(nx.h?"Vers "+nx.h:"Horaire à venir")+(nx.p?" · Piste "+nx.p:"")}</div><div class="vs">${esc(nx.l)} · CONTRE</div>${team(op)}${nx.st!="c"&&nx.h?'<p>L’heure est une estimation : elle bouge selon l’avancée des matchs.</p>':""}</div>`}
+else if(L.length&&L.every(x=>x.st=="f"))h+=`<div class="nx"><span class="tg">TERMINÉ</span><div class="wh">Tous tes matchs sont joués</div><p>Merci et bravo ! Le classement final arrive à la fin du tournoi.</p></div>`;
+else h+=`<div class="nx"><span class="tg">EN ATTENTE</span><div class="wh">Ton prochain adversaire n’est pas encore connu</div><p>Reviens dans quelques minutes, la page se met à jour toute seule.</p></div>`;
+if(g)h+=ptable(g);const done=L.filter(x=>x.st=="f");if(done.length)h+=`<div class="box"><h2>Tes résultats</h2>${done.map(x=>{const won=(x.w===0&&x.a==me.t)||(x.w===1&&x.b==me.t);return mcard(x,true).replace('<div class="mh"><span>',`<div class="mh"><span><span class="vd ${won?"v":"d"}">${won?"V":"D"}</span> `)}).join("")}</div>`;return h}
+function vPick(){return `<div class="box"><h1>${CI?"Touche ton nom":"Qui es-tu ?"}</h1><p>Touche ton nom pour voir ta poule, tes scores et ton prochain match.</p>${pickList("me")}</div>`}
+function vCI(){return `<div class="box"><h1>Bienvenue ! 👋</h1><p>Tu viens d’arriver ? Touche ton nom pour prévenir le juge-arbitre.</p>${pickList("ci")}</div>`}
+function vPools(){if(!D.G.length)return '<div class="box"><p>Pas de poules dans ce tournoi.</p></div>';const sel=gSel&&D.G.find(g=>g.n==gSel);return `<div style="margin:0 0 8px"><button class="chip${!sel?" on":""}" onclick="gSel='';draw()">Toutes</button>${D.G.map(g=>`<button class="chip${sel&&sel.n==g.n?" on":""}" onclick="gSel='${g.n}';draw()">Poule ${g.n}</button>`).join("")}</div>`+(sel?[sel]:D.G).map(ptable).join("")+(sel&&!me?`<div class="box"><p style="margin:0">Touche « Moi » en bas pour suivre tes matchs.</p></div>`:"")}
+function vLive(){const tm=me?me.t:-1,C=D.M.filter(x=>x.st=="c").sort((a,b)=>(a.p||99)-(b.p||99)),U=D.M.filter(x=>!x.st&&x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0).sort((a,b)=>String(a.h||"99").localeCompare(String(b.h||"99"))).slice(0,10),F=D.M.filter(x=>x.st=="f").slice(-6).reverse();
+return `<div class="box"><h2>En cours</h2>${C.length?C.map(x=>mcard(x,x.a==tm||x.b==tm)).join(""):"<p>Aucun match en cours.</p>"}</div><div class="box"><h2>À suivre</h2>${U.length?U.map(x=>mcard(x,x.a==tm||x.b==tm)).join(""):"<p>Rien de prévu pour l’instant.</p>"}</div>${F.length?`<div class="box"><h2>Derniers résultats</h2>${F.map(x=>mcard(x,x.a==tm||x.b==tm)).join("")}</div>`:""}`}
+function vBk(){const B=D.M.filter(x=>!x.g),tm=me?me.t:-1;if(!B.length)return '<div class="box"><p>Le tableau final n’est pas encore tiré.</p></div>';const R=[];B.forEach(x=>{const k=x.l.replace(/\s*·\s*Match.*$/i,"").replace(/\s+\d+$/,"");let r=R.find(z=>z.k==k);if(!r)R.push(r={k,L:[]});r.L.push(x)});return R.map(r=>`<div class="box"><h2>${esc(r.k)}</h2>${r.L.map(x=>mcard(x,x.a==tm||x.b==tm)).join("")}</div>`).join("")}
+function nav(){const n=$("nav");if(view=="ci"||!D){n.style.display="none";return}n.style.display="flex";const it=[["me","🙋","Moi"],...(D.G.length?[["pools","📋","Poules"]]:[]),["live","🎾","En direct"],...(D.M.some(x=>!x.g)?[["bk","🏆","Tableau"]]:[])];n.firstElementChild.innerHTML=it.map(([k,i,l])=>`<button class="${view==k||(view=="pick"&&k=="me")?"on":""}" onclick="view='${k}';draw();scrollTo(0,0)"><i>${i}</i>${l}</button>`).join("")}
+function draw(){const ae=document.activeElement,keep=ae&&ae.id=="sr";if(!D){m.innerHTML=`<div class="box"><h1>${loadErr?"Pas encore disponible":"Chargement…"}</h1>${loadErr?`<p class="err">${esc(loadErr)}</p><button class="go" onclick="load()">🔄 Réessayer</button>`:""}</div>`;nav();return}
+$("tt").textContent=D.t||"Padel+ · En direct";const ago=Math.max(0,Math.round((Date.now()-(D.at||Date.now()))/60000));$("st").textContent="● En direct · mis à jour "+(ago<1?"à l’instant":"il y a "+ago+" min")+(loadErr?" · connexion perdue, nouvel essai…":"");
+if(keep&&view!="ci"&&view!="pick"){}else if(keep){nav();return}
+m.innerHTML=view=="ci"?vCI():view=="me"?vMe():view=="pools"?vPools():view=="live"?vLive():view=="bk"?vBk():vPick();nav()}
+load();setInterval(()=>{if(document.visibilityState=="visible")load()},20000);document.addEventListener("visibilitychange",()=>{if(document.visibilityState=="visible")load()});
+</script></body></html>
