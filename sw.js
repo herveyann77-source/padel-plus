@@ -1,6 +1,6 @@
 // Padel+ : fonctionne aussi sans connexion (au club, sans wifi).
-// Connecté : la dernière version est toujours chargée tout de suite. Tes données ne sont jamais touchées ici.
-const VERSION = "padel-plus-v468";
+// Ouverture instantanée depuis la copie de l'appareil ; chaque nouvelle version (VERSION ci-dessous) s'installe en arrière-plan puis l'appli se recharge seule. Tes données ne sont jamais touchées ici.
+const VERSION = "padel-plus-v470";
 const FILES = ["./", "index.html", "manifest.webmanifest", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable.png"];
 const XLSX_URL = "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
 self.addEventListener("install", e => {
@@ -26,10 +26,14 @@ self.addEventListener("fetch", e => {
   if (u.pathname.includes("/test/")) return;
   // Pages des joueurs (confirmer, stats) : toujours en direct
   if (/\/(confirmer|stats)\.html$/.test(u.pathname)) return;
-  // Le reste : d'abord Internet (version la plus récente, sans attendre le cache du navigateur), sinon la copie gardée
+  // Le reste : la copie gardée sur l'appareil s'ouvre tout de suite (même sans réseau ou avec un Wi-Fi faible),
+  // et la version en ligne est rechargée en arrière-plan pour la prochaine ouverture.
+  const net = () => withTimeout(fetch(req, { cache: "no-store" }), 15000)
+    .then(r => { if (r && r.ok) { const cp = r.clone(); caches.open(VERSION).then(c => c.put(req, cp)); } return r; });
   e.respondWith(
-    withTimeout(fetch(req, { cache: "no-store" }), 5000)
-      .then(r => { if (r && r.ok) { const cp = r.clone(); caches.open(VERSION).then(c => c.put(req, cp)); } return r; })
-      .catch(() => caches.match(req, { ignoreSearch: true }).then(m => m || (req.mode === "navigate" ? caches.match("index.html") : Response.error())))
+    caches.match(req, { ignoreSearch: true }).then(m => {
+      if (m) { e.waitUntil(net().catch(() => {})); return m; }
+      return net().catch(() => (req.mode === "navigate" ? caches.match("index.html") : Response.error()));
+    })
   );
 });
