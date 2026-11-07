@@ -1,7 +1,7 @@
-/* Padel+ · mode hors ligne · version 505
+/* Padel+ · mode hors ligne · version 509
    Toujours chercher la version la plus récente sur le réseau ;
    la copie gardée en mémoire ne sert que sans connexion. */
-const VERSION = "padel-505";
+const VERSION = "padel-509";
 const BASE = ["./", "index.html", "manifest.webmanifest", "apple-touch-icon.png", "icon-192.png"];
 
 self.addEventListener("install", e => {
