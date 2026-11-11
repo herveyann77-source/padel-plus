@@ -52,6 +52,23 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - Couleurs : bleu marine `#141c4a` / `#101d5a` et vert balle `#b6ef2a`. Logo « Le smash ».
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
 
+## Idées du 12 novembre à mettre en place à partir du lundi 16/11 (dans cet ordre, image d'abord)
+1. **« Ta place dans le tournoi »** (page joueur + Padel+ Joueur) : cadre violet style B ; rang en très grand
+   (« 10e sur 24 équipes inscrites »), pastille TS ou « Poule B · 2e de poule », liste de toutes les équipes
+   (TS, trait, puis les autres), équipe du joueur surlignée en jaune avec « Toi », « toucher pour tout voir ».
+   Dessin déjà validé dans le principe (ta-place.png), à installer après accord.
+2. **Padel+ Joueur** (voir plus bas) : mémorable, appli favorite, photos Unsplash, connexion licence + code.
+3. **Question du jour** : les 255 questions FFT dans Padel+ Joueur (et sur la Vue TV), réponse + source citée.
+4. **Vue TV vivante** : « 🔥 Le point du jour » = courtes vidéos filmées par Yann à l'iPad pendant le tournoi
+   (accord des joueurs filmés, droit à l'image/RGPD), stockées dans Supabase Storage (gratuit) ;
+   ambiance avec clips gratuits Pexels (domaine à autoriser) ; pas de téléchargement de vidéos officielles
+   (seulement intégration YouTube autorisée) ; pastilles de 10 s entre les vidéos : question d'arbitrage
+   avec compte à rebours, « le chiffre du tournoi » (plus long jeu, score le plus serré…).
+5. **Photos et vidéos gratuites** partout où ça embellit (Padel+, Padel+ Joueur, Padel+ Club), jamais payant.
+6. **Padel+ Club** (propriétaires) : plus tard, relié au même Supabase.
+- Le connecteur **Supabase** est branché depuis le 12/11 (projet Padel-plus, nikfwvmrrytshvlrgqae) :
+  travailler directement dedans (lire librement ; avant toute modification, expliquer à Yann).
+
 ## En attente / à venir
 - **Padel+ Joueur** (TRÈS IMPORTANT : mémorable, si facile d'accès qu'elle devient l'appli favorite des joueurs) : appli des joueurs (une icône sur l'écran d'accueil, entrée perso licence + code à 4 chiffres choisi
   la 1re fois, mail de bienvenue avec mode d'emploi). Accueil : 4 grandes tuiles avec vraies photos (Unsplash, licence gratuite)
