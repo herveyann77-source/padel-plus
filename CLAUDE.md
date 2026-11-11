@@ -57,7 +57,9 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
    (« 10e sur 24 équipes inscrites »), pastille TS ou « Poule B · 2e de poule », liste de toutes les équipes
    (TS, trait, puis les autres), équipe du joueur surlignée en jaune avec « Toi », « toucher pour tout voir ».
    Dessin déjà validé dans le principe (ta-place.png), à installer après accord.
-2. **Padel+ Joueur** (voir plus bas) : mémorable, appli favorite, photos Unsplash, connexion licence + code.
+2. **Padel+ Joueur** — CAHIER DES CHARGES DE YANN : minimum de clics, maximum d'informations, ultra lisible,
+   d'une simplicité déconcertante ; il laisse Claude libre d'utiliser tous ses outils (skills de design, Supabase,
+   photos) : bon code couleur, animations « magiques » discrètes, quelque chose de vraiment génial. (voir plus bas) : mémorable, appli favorite, photos Unsplash, connexion licence + code.
 3. **Question du jour** : les 255 questions FFT dans Padel+ Joueur (et sur la Vue TV), réponse + source citée.
 4. **Vue TV vivante** : « 🔥 Le point du jour » = courtes vidéos filmées par Yann à l'iPad pendant le tournoi
    (accord des joueurs filmés, droit à l'image/RGPD), stockées dans Supabase Storage (gratuit) ;
