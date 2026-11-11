@@ -62,15 +62,11 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
    d'une simplicité déconcertante ; il laisse Claude libre d'utiliser tous ses outils (skills de design, Supabase,
    photos) : bon code couleur, animations « magiques » discrètes, quelque chose de vraiment génial. (voir plus bas) : mémorable, appli favorite, photos Unsplash, connexion licence + code.
 3. **Question du jour** : les 255 questions FFT dans Padel+ Joueur (et sur la Vue TV), réponse + source citée.
-4. **Vue TV vivante** : « 🔥 Le point du jour » = courtes vidéos filmées par Yann à l'iPad pendant le tournoi
-   (accord des joueurs filmés, droit à l'image/RGPD), stockées dans Supabase Storage (gratuit) ;
-   ambiance avec clips gratuits Pexels (domaine à autoriser) ; pas de téléchargement de vidéos officielles
-   (seulement intégration YouTube autorisée) ; pastilles de 10 s entre les vidéos : question d'arbitrage
-   avec compte à rebours, « le chiffre du tournoi » (plus long jeu, score le plus serré…).
-   Maquette proposée le 12/11 (maquettes/vue-tv-vivante.png) : à gauche le contenu qui tourne (poules en direct…),
-   à droite « 🔥 Le point du jour » en vidéo en boucle sans le son, en bas un bandeau vert balle « ❓ question
-   d'arbitrage, réponse dans 8 s ». **Flèches ▲▼ dans les classements de poule** (équipe qui monte/descend après
-   un match ; existent déjà seulement dans le Défi). Les questions viennent des 255 FFT (pas inventées).
+4. **Vue TV vivante** : Yann ne filmera JAMAIS de points → abandon du « point du jour » filmé (ne plus le proposer).
+   Garder : flèches ▲▼ dans les classements de poule (n'existent que dans le Défi), bandeau « ❓ question d'arbitrage,
+   réponse dans 8 s » (255 questions FFT), « le chiffre du tournoi ». Panneau de droite à repenser : « Prochains matchs /
+   C'est à vous · Piste N » et/ou courts clips d'ambiance gratuits (Pexels, domaine à autoriser). Maquette de départ :
+   maquettes/vue-tv-vivante.png (sans la vidéo filmée).
 4b. **« Ce qu'il te faut pour te qualifier »** (appli joueurs seulement, idée du 12/11) : avant le dernier match de
    poule, dire au joueur le score nécessaire (ex. « gagne 9-0 : qualifié ; 9-1 : éliminé »), calculé selon les
    règles de départage (points, diff. de sets, diff. de jeux, confrontation directe). N'existe pas encore.
