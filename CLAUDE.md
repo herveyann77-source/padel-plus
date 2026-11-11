@@ -24,7 +24,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   `confirmer.html`, `score.html` (score saisi depuis la piste, validé si les 2 équipes concordent),
   `stats.html` (statistiques perso), `live.html`, `arena.html` (jeux/pronostics).
 - `.nojekyll` : **ne pas supprimer** (évite les échecs de publication GitHub Pages).
-- `index 2..5.html` : anciennes copies, ne pas modifier.
+- Les anciennes copies `index 2..5.html` ont été supprimées le 12/11 avec son accord (récupérables dans l'historique GitHub).
 - Cloud : Supabase `https://nikfwvmrrytshvlrgqae.supabase.co`. Site : `https://herveyann77-source.github.io/padel-plus/`.
 
 ## Publier une version
