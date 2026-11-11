@@ -67,6 +67,10 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
    (seulement intégration YouTube autorisée) ; pastilles de 10 s entre les vidéos : question d'arbitrage
    avec compte à rebours, « le chiffre du tournoi » (plus long jeu, score le plus serré…).
 5. **Photos et vidéos gratuites** partout où ça embellit (Padel+, Padel+ Joueur, Padel+ Club), jamais payant.
+7. **Lien Moja / inscriptions des clubs (idée du 12/11)** : rêve = quand un joueur s'inscrit sur le lien du club,
+   l'inscription arrive aussi dans Padel+ sans aucune manipulation en plus pour le joueur ; et un lien avec Moja.
+   À étudier : quel site d'inscription utilise chaque club (Coquelicot, Aldea, Carré Padel, Ozoir), possibilités
+   d'export/notification par mail ; Moja = bouton magique toujours en attente de l'accord du comité.
 6. **Padel+ Club** (propriétaires) : plus tard, relié au même Supabase.
 - Le connecteur **Supabase** est branché depuis le 12/11 (projet Padel-plus, nikfwvmrrytshvlrgqae) :
   travailler directement dedans (lire librement ; avant toute modification, expliquer à Yann).
