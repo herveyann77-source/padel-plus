@@ -49,6 +49,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   « Bon à savoir ». Pas de numéro de piste annoncé à l'avance (seulement « C'est à toi · Piste N » quand le match est lancé).
 - Annonces de tournois : lien d'inscription du club (Mes clubs → « Lien d'inscription des joueurs », jamais pour Lésigny),
   pas de nombre de places (les inscriptions ne passent pas par l'appli). Canaux WhatsApp par catégorie (lien collé une fois).
+- Planning : déjà refait avec Yann (frise + grille), il en est plutôt content ; à revoir seulement à la marge.
 - Couleurs : bleu marine `#141c4a` / `#101d5a` et vert balle `#b6ef2a`. Logo « Le smash ».
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
 
@@ -66,6 +67,13 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
    ambiance avec clips gratuits Pexels (domaine à autoriser) ; pas de téléchargement de vidéos officielles
    (seulement intégration YouTube autorisée) ; pastilles de 10 s entre les vidéos : question d'arbitrage
    avec compte à rebours, « le chiffre du tournoi » (plus long jeu, score le plus serré…).
+   Maquette proposée le 12/11 (maquettes/vue-tv-vivante.png) : à gauche le contenu qui tourne (poules en direct…),
+   à droite « 🔥 Le point du jour » en vidéo en boucle sans le son, en bas un bandeau vert balle « ❓ question
+   d'arbitrage, réponse dans 8 s ». **Flèches ▲▼ dans les classements de poule** (équipe qui monte/descend après
+   un match ; existent déjà seulement dans le Défi). Les questions viennent des 255 FFT (pas inventées).
+4b. **« Ce qu'il te faut pour te qualifier »** (appli joueurs seulement, idée du 12/11) : avant le dernier match de
+   poule, dire au joueur le score nécessaire (ex. « gagne 9-0 : qualifié ; 9-1 : éliminé »), calculé selon les
+   règles de départage (points, diff. de sets, diff. de jeux, confrontation directe). N'existe pas encore.
 5. **Photos et vidéos gratuites** partout où ça embellit (Padel+, Padel+ Joueur, Padel+ Club), jamais payant.
 7. **Lien Moja / inscriptions des clubs (idée du 12/11)** : rêve = quand un joueur s'inscrit sur le lien du club,
    l'inscription arrive aussi dans Padel+ sans aucune manipulation en plus pour le joueur ; et un lien avec Moja.
