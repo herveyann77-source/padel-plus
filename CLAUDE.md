@@ -53,7 +53,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
 
 ## En attente / à venir
-- **Padel+ Joueur** : appli des joueurs (une icône sur l'écran d'accueil, entrée perso licence + code à 4 chiffres choisi
+- **Padel+ Joueur** (TRÈS IMPORTANT : mémorable, si facile d'accès qu'elle devient l'appli favorite des joueurs) : appli des joueurs (une icône sur l'écran d'accueil, entrée perso licence + code à 4 chiffres choisi
   la 1re fois, mail de bienvenue avec mode d'emploi). Accueil : 4 grandes tuiles avec vraies photos (Unsplash, licence gratuite)
   façon cartes « Aujourd'hui » de l'App Store : Moi, Mon prochain tournoi, Calendrier Padel+, Mes statistiques
   + bandeau « EN DIRECT » le jour J. Défi et Jeux mis de côté. Idées : photo de profil (comme WhatsApp), barème de points
