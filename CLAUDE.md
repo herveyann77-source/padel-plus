@@ -49,6 +49,8 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   « Bon à savoir ». Pas de numéro de piste annoncé à l'avance (seulement « C'est à toi · Piste N » quand le match est lancé).
 - Annonces de tournois : lien d'inscription du club (Mes clubs → « Lien d'inscription des joueurs », jamais pour Lésigny),
   pas de nombre de places (les inscriptions ne passent pas par l'appli). Canaux WhatsApp par catégorie (lien collé une fois).
+- Planning : finale + matchs de places (3e, 5e, 7e…) tous à la même heure, après la fin de TOUTES les demies ;
+  en P500, demi-finale et finale = créneau d'1 heure (pas 45 min + 1 h).
 - Planning : déjà refait avec Yann (frise + grille), il en est plutôt content ; à revoir seulement à la marge.
 - Couleurs : bleu marine `#141c4a` / `#101d5a` et vert balle `#b6ef2a`. Logo « Le smash ».
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
