@@ -174,9 +174,9 @@ button,.bt,a.bt{transition:transform .14s var(--pp-ease),box-shadow .25s,filter 
 /* n°658 : Vue TV, chaque set dans sa propre case (7 7 ne se lit plus « 77 ») */
 .tvset{font-style:normal;display:inline-block}
 .tvset+.tvset{margin-left:.3em}
-b:has(.tvset+.tvset){background:transparent!important;box-shadow:none!important;padding:0!important;white-space:nowrap;flex:none}
-b:has(.tvset+.tvset) .tvset{min-width:1.35em;text-align:center;padding:.05em .3em;border-radius:.35em;background:rgba(255,255,255,.12);color:#fff!important}
-b:has(.tvset+.tvset) .tvset.sw{background:#b6ef2a;color:#0b1440!important;box-shadow:0 3px 8px -3px rgba(90,130,10,.6)}
+b:has(.tvset){background:transparent!important;box-shadow:none!important;padding:0!important;white-space:nowrap;flex:none}
+b:has(.tvset) .tvset{min-width:1.35em;text-align:center;padding:.05em .3em;border-radius:.35em;background:rgba(255,255,255,.12);color:#fff!important}
+b:has(.tvset) .tvset.sw{background:#b6ef2a;color:#0b1440!important;box-shadow:0 3px 8px -3px rgba(90,130,10,.6)}
 .tvn span,.tvn .bpn{white-space:nowrap}
 /* 6. la photo de piste derrière le tournoi */
 .hmh,.tdc{position:relative;overflow:hidden;isolation:isolate}
