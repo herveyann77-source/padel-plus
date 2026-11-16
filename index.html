@@ -216,6 +216,38 @@ b:has(.tvset) .tvset.sw{background:#b6ef2a;color:#0b1440!important;box-shadow:0 
 .dls{margin:14px 2px 6px;font-weight:800;color:var(--mu,#68719d);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
 .dlk{margin:12px 0 0;background:rgba(182,239,42,.18);border-left:5px solid #b6ef2a;border-radius:10px;padding:10px 12px;font-size:16px}
 @media (max-width:640px){.dlr{grid-template-columns:110px 1fr;}.dlw{grid-column:1/-1}}
+/* n°660 : fiche des catégories */
+.fcW>summary{font-size:18px;font-weight:800}
+.fcH{position:relative;overflow:hidden;isolation:isolate;margin:12px 0 12px;border-radius:18px;min-height:150px;display:flex;align-items:flex-end;padding:20px 22px;color:#fff}
+.fcH::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--pp-photo) center 60%/cover;transform:scale(1.05);animation:fcZoom 14s ease-in-out infinite alternate}
+.fcH::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(13,20,64,.95),rgba(13,20,64,.7) 55%,rgba(13,20,64,.15))}
+@keyframes fcZoom{to{transform:scale(1.16) translateX(-2%)}}
+.fcH small{display:block;color:#b6ef2a;font-weight:900;letter-spacing:.12em;font-size:12px}
+.fcH b{display:block;font-family:var(--pp-disp,inherit);font-size:34px;line-height:1.05;margin:4px 0}
+.fcH span{color:#d3d9fb;font-size:15px}
+.fcS{overflow-x:auto;border-radius:16px;border:1px solid var(--ln,#e3e8fa);background:var(--card,#fff)}
+.fcT{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;min-width:860px}
+.fcT th,.fcT td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--ln,#e3e8fa);transition:background .2s}
+.fcT tbody tr:last-child>*{border-bottom:0}
+.fcT tbody tr:nth-child(even)>*{background:rgba(127,140,190,.05)}
+.fcT tbody tr:hover>*{background:rgba(182,239,42,.10)}
+.fcL{position:sticky;left:0;z-index:1;background:var(--card,#fff);text-align:left!important;font-weight:800;white-space:nowrap;color:var(--tx,#141c4a);min-width:170px}
+.fcL i{font-style:normal;display:inline-block;width:24px}
+.fcT thead th{background:#141c4a;padding:12px 6px}
+.fcT thead .fcL{background:#141c4a}
+.fcC{display:inline-block;background:var(--cc);color:#fff;font-family:var(--pp-disp,inherit);font-weight:900;font-size:17px;border-radius:12px;padding:6px 10px;box-shadow:0 6px 14px -6px var(--cc),inset 0 1px 0 rgba(255,255,255,.35);animation:fcIn .5s var(--pp-ease,ease) both;animation-delay:var(--d)}
+.fcT td{animation:fcIn .5s var(--pp-ease,ease) both;animation-delay:calc(var(--d) + 120ms)}
+@keyframes fcIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.fcB{font-family:var(--pp-disp,inherit);font-size:20px;font-weight:900;color:var(--tx,#141c4a)}
+.fcT td small{display:block;font-size:11px;color:var(--mu,#68719d);font-weight:700}
+.fcN{font-size:12.5px;line-height:1.25;color:var(--tx,#141c4a)}.fcN b{font-size:14px}
+.fcO{display:inline-block;background:#e4f7ea;color:#16753f;font-weight:800;border-radius:99px;padding:3px 9px;font-size:12.5px}
+.fcX{display:inline-block;background:#f1f3fa;color:#7c84a8;font-weight:700;border-radius:99px;padding:3px 9px;font-size:12.5px}
+.fcP{display:inline-block;background:#eef1fb;border-radius:8px;padding:2px 6px;margin:1px;font-size:12.5px;white-space:nowrap}
+.fcT em,.fcF em{color:#e08a1e;font-style:normal;font-weight:900}
+.fcF{margin:10px 2px 0;font-size:13px;color:var(--mu,#68719d)}
+.fcT:has(.fq0:hover) .fq0{background:rgba(182,239,42,.16)}.fcT:has(.fq1:hover) .fq1{background:rgba(182,239,42,.16)}.fcT:has(.fq2:hover) .fq2{background:rgba(182,239,42,.16)}.fcT:has(.fq3:hover) .fq3{background:rgba(182,239,42,.16)}.fcT:has(.fq4:hover) .fq4{background:rgba(182,239,42,.16)}.fcT:has(.fq5:hover) .fq5{background:rgba(182,239,42,.16)}.fcT:has(.fq6:hover) .fq6{background:rgba(182,239,42,.16)}.fcT:has(.fq7:hover) .fq7{background:rgba(182,239,42,.16)}
+@media (prefers-reduced-motion:reduce){.fcH::before,.fcC,.fcT td{animation:none!important}}
 /* 6. la photo de piste derrière le tournoi */
 .hmh,.tdc{position:relative;overflow:hidden;isolation:isolate}
 .hmh::before,.tdc::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--pp-photo) center/cover;transform:scale(1.04);transition:transform 6s var(--pp-ease)}
@@ -3907,6 +3939,26 @@ const wcUI=()=>`<details class="card"${OP.wc?" open":""} ontoggle="OP.wc=this.op
 <p style="margin:0 0 6px"><b>Paire « recomposée »</b> après le forfait d’un partenaire : seulement via une demande de WC acceptée par le comité, dans les mêmes délais.</p>
 <p style="margin:0 0 6px"><b>Forfait avant le tirage</b> sans paire en liste d’attente : le juge-arbitre peut proposer au club une WC supplémentaire pour compléter les poules, même après le délai ; elle entre au dernier rang.</p>
 <p class="n" style="margin:10px 0 0">⚠ Résumé établi à partir du guide de la compétition padel FFT et de ses changements 2027. En cas de doute, le texte officiel du guide 2027 (fft.fr ou ta ligue) fait foi.</p></div></details>`;
+/* n°660 : la fiche des catégories, tout sur un seul tableau (guide de la compétition padel FFT 2027) */
+const fichUI=()=>{try{const C=["P25","P50","P100","P250","P500","P1000","P2000","P3000"],col={P25:"#22a55e",P50:"#1f9cb0",P100:"#2f7de1",P250:"#e08a1e",P500:"#d64545",P1000:"#a23fb8",P2000:"#4a4ad0",P3000:"#5b6b8c"},n=v=>Number(v).toLocaleString("fr-FR"),lim=k=>{const v=(S.lim||{})[k];return v!==undefined&&v!==""?v:DEFLIM[k]},
+top=(c,g)=>{const v=lim(c+g);return v?`<span class="fcN">Interdit au<br><b>top ${n(v)}</b></span>`:`<span class="fcO">Ouvert à tous</span>`},
+MN={P25:[4,4,4],P50:[4,4,4],P100:[8,4,8],P250:[12,4,12],P500:[16,8,null,1],P1000:[24,16,null,1]},
+DL={P25:"1 sem.",P50:"1 sem.",P100:"2 sem.",P250:"3 sem.",P500:"4 sem.*",P1000:"6 sem.*",P2000:"8 sem.*",P3000:"—*"},
+R=[
+["🏆","Points au vainqueur",c=>{const p=ptsFor(c,"Messieurs",16,1);return p!=null?`<b class="fcB">${n(p)}</b><small>pts</small>`:"—"}],
+["♂","Messieurs",c=>top(c,"H")],
+["♀","Dames",c=>top(c,"F")],
+["⚥","Mixte",c=>["P25","P50","P100"].includes(c)?"Mêmes limites":c=="P250"?`<span class="fcO">Aucune limite</span>`:`<span class="fcX">Pas de mixte</span>`],
+["👥","Paires minimum",c=>{const m=MN[c];return m?`<span class="fcP">M <b>${m[0]}</b></span><span class="fcP">D <b>${m[1]}</b></span>${m[2]!=null?`<span class="fcP">Mx <b>${m[2]}</b></span>`:""}${m[3]?"<em>*</em>":""}`:"—"}],
+["📝","Entrée des paires",c=>["P25","P50","P100","P250"].includes(c)?"Ordre d’arrivée":"Poids de paire"],
+["⏳","Délai d’homologation",c=>`<b>${DL[c].replace("*","")}</b>${DL[c].includes("*")?"<em>*</em>":""}`],
+["💶","Droits d’homologation",c=>{const v=homoE(c);return v>0?`<b>${n(v)} €</b>`:"—"}],
+["🎟️","Wild cards",c=>c=="P1000"?"1 (tableau final)":["P2000","P3000"].includes(c)?"Règlement FFT":`<span class="fcX">Aucune</span>`],
+["🏟️","Organisé par",c=>["P2000","P3000"].includes(c)?"FFT":c=="P1000"?"Ligue":"Club"]];
+return `<details class="card fcW" style="margin:0 0 10px"${OP.fich!==false?" open":""} ontoggle="OP.fich=this.open"><summary>✨ Les catégories en un coup d’œil</summary>
+<div class="fcH"><div><small>GUIDE DE LA COMPÉTITION PADEL FFT · SAISON 2027</small><b>Du P25 au P3000</b><span>Qui peut jouer, combien de paires, quels délais : tout sur un seul tableau.</span></div></div>
+<div class="fcS"><table class="fcT"><thead><tr><th class="fcL"></th>${C.map((c,i)=>`<th class="fq${i}" style="--cc:${col[c]};--d:${i*60}ms"><span class="fcC">${c}</span></th>`).join("")}</tr></thead><tbody>${R.map(([ic,lab,f])=>`<tr><th class="fcL"><i>${ic}</i>${lab}</th>${C.map((c,i)=>`<td class="fq${i}" style="--d:${i*60}ms">${f(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+<p class="fcF"><em>*</em> à vérifier dans le guide 2027 (chiffres du guide 2026 ou mise en page du PDF difficile à lire). Les limites de classement se modifient dans « Le détail par thème ». Le guide officiel fait foi.</p></details>`}catch(e){return ""}};
 /* n°660 : délais d’homologation par catégorie (guide de la compétition padel FFT) */
 const delUI=()=>{const R=[
 ["P25","#22a55e","1 semaine","Ligue ou comité",""],
@@ -3955,7 +4007,7 @@ function r2Ch(n){R2C=R2C==n?0:n;R2Q="";R2N=25;const i=document.getElementById("r
 function r2Clear(){R2Q="";R2N=25;const i=document.getElementById("r2in");if(i){i.value="";i.focus()}r2In("")}
 const r2Chips=()=>r2Data().ch.map(c=>`<button class="r2ch${R2C==c.n?" on":""}" onclick="r2Ch(${c.n})">${c.n==15?"Mémo erreurs":esc(c.t.charAt(0)+c.t.slice(1).toLowerCase())}</button>`).join("");
 const r255UI=()=>`<details class="card r2card"${OP.r255?" open":""} ontoggle="OP.r255=this.open"><summary>📖 Les règles du Padel en 255 questions <small style="color:var(--mu)">· recherche instantanée · FFT 2025</small></summary><p class="n" style="margin:8px 0 10px">Texte officiel FFT · édition 2025 · fonctionne sans internet</p><div class="r2sb"><span>🔎</span><input id="r2in" type="text" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Pose ta question : balle dans la grille, let, retard…" value="${esc(R2Q)}" oninput="r2In(this.value)"><button id="r2x" type="button" onclick="r2Clear()" style="visibility:${R2Q?"visible":"hidden"}" aria-label="Effacer">✕</button></div><div class="r2chips" id="r2chips">${r2Chips()}</div><div id="r2res">${r2Res()}</div></details>`;
-const vPlus=()=>`<details class="card rfold"${OP.rfft?" open":""} ontoggle="OP.rfft=this.open"><summary>📘 Règlement FFT <small style="color:var(--mu)">· 8 rubriques</small></summary><div class="rfin">`+r255UI()+wcUI()+homUI()+delUI()+limUI()+`<details class="card asgrp" style="margin:10px 0 0"${OP.asgp?" open":""} ontoggle="OP.asgp=this.open"><summary>🔁 Assimilations <small style="color:var(--mu)">· joueuse chez les messieurs, autres classements</small></summary>${assUI().replace("<summary>Assimilation (joueuse dans un tournoi Messieurs)</summary>","<summary>1 · Joueuse dans un tournoi Messieurs</summary>")}${asgUI().replace("<summary>🔁 Assimilations de classement (guide FFT 2027)</summary>","<summary>2 · Autres classements (tennis, étrangers, anciens classés…)</summary>")}</details>`+minUI()+bareUI()+`</div></details>`+`<details class="card" style="margin:10px 0 0"${OP.lex?" open":""} ontoggle="OP.lex=this.open"><summary>📖 Petit lexique de l’application <small style="color:var(--mu)">· TS, WO, JD, Cci…</small></summary>${lexHtml()}</details>`+pyrEditUI();
+const vPlus=()=>`<details class="card rfold"${OP.rfft?" open":""} ontoggle="OP.rfft=this.open"><summary>📘 Règlement FFT <small style="color:var(--mu)">· 4 rubriques</small></summary><div class="rfin">`+fichUI()+r255UI()+`<details class="card asgrp" style="margin:10px 0 0"${OP.asgp?" open":""} ontoggle="OP.asgp=this.open"><summary>🔁 Assimilations <small style="color:var(--mu)">· joueuse chez les messieurs, autres classements</small></summary>${assUI().replace("<summary>Assimilation (joueuse dans un tournoi Messieurs)</summary>","<summary>1 · Joueuse dans un tournoi Messieurs</summary>")}${asgUI().replace("<summary>🔁 Assimilations de classement (guide FFT 2027)</summary>","<summary>2 · Autres classements (tennis, étrangers, anciens classés…)</summary>")}</details>`+`<details class="card" style="margin:10px 0 0"${OP.rdet?" open":""} ontoggle="OP.rdet=this.open"><summary>📂 Le détail par thème <small style="color:var(--mu)">· wild cards, prix, délais, limites modifiables, paires minimum, barème</small></summary><div style="margin-top:6px">`+wcUI()+homUI()+delUI()+limUI()+minUI()+bareUI()+`</div></details></div></details>`+`<details class="card" style="margin:10px 0 0"${OP.lex?" open":""} ontoggle="OP.lex=this.open"><summary>📖 Petit lexique de l’application <small style="color:var(--mu)">· TS, WO, JD, Cci…</small></summary>${lexHtml()}</details>`+pyrEditUI();
 let JACT=null;function jAct(v){JACT=JACT===v?null:v;if(v=="moja")OP.eq=true;render()}
 const jBar=()=>{const T=S.teams,n=T.length,fi=sub=="fiches",nv=T.reduce((a,t)=>a+(t.a.cvt?1:0)+(t.b.cvt?1:0),0),py=T.filter(t=>teamPay(t).n==2).length,pr=T.reduce((a,t)=>a+(t.a.ar?1:0)+(t.b.ar?1:0),0),ch=(v,l)=>`<button class="jch${TF==v?" on":""}" onclick="setTF('${v}')">${l}</button>`;let na=0;try{na=T.filter((t,i)=>!t.ann&&alerts(i).length).length}catch(e){}
 const it=(v,ic,l,sm,js)=>`<button class="jmi" onclick="${js||`JACT='${v}';if('${v}'=='moja')OP.eq=true;render()`}"><b>${ic} ${l}</b>${sm?`<small>${sm}</small>`:""}</button>`;
