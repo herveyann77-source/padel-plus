@@ -150,7 +150,7 @@ let tt=null;function toast(t){let e=$("toast");if(!e){e=document.createElement("
 /* ---------- briques ---------- */
 function nextOf(w){const L=myMs(w).filter(x=>x.st!="f"&&x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0);L.sort((a,b)=>(a.st=="c"?-1:0)-(b.st=="c"?-1:0)||(toMin(a.h)??9999)-(toMin(b.h)??9999));return L[0]||null}
 /* n°661 : le parcours du joueur en frise fine (poule, puis tableau) */
-function parcours(w){try{const M=myMs(w).filter(x=>x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0),P=M.filter(x=>x.g),B=M.filter(x=>!x.g).sort((a,b)=>(toMin(a.h)??9999)-(toMin(b.h)??9999)),won=x=>x.st=="f"&&x.w===(x.a==w.t?0:1),lab=l=>{l=String(l||"").replace(/ \d+$/,"");return /1\/16/.test(l)?"1/16":/1\/8|huiti/i.test(l)?"1/8":/quart|1\/4/i.test(l)?"1/4":/demi|1\/2/i.test(l)?"1/2":/^finale/i.test(l)?"Finale":/place|classement/i.test(l)?"Classement":l.split(" ")[0]},N=[];
+function parcours(w){try{const M=myMs(w).filter(x=>x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0),P=M.filter(x=>x.g),B=M.filter(x=>!x.g).sort((a,b)=>(toMin(a.h)??9999)-(toMin(b.h)??9999)),won=x=>x.st=="f"&&x.w===(x.a==w.t?0:1),lab=l=>{l=String(l||"").replace(/ \d+$/,"");return /1\/16|seizi/i.test(l)?"16e":/1\/8|huiti/i.test(l)?"8e":/quart|1\/4/i.test(l)?"Quart":/demi|1\/2/i.test(l)?"Demi":/^finale/i.test(l)?"Finale":/place|classement/i.test(l)?"Classement":l.split(" ")[0]},N=[];
 if(D.G&&D.G.length){const pd=P.length&&P.every(x=>x.st=="f"),pc=P.some(x=>x.st=="c"||x.st=="f");N.push({l:"Poule",s:pd?"w":pc?"n":""})}
 let out=false;B.forEach(x=>{const s=x.st=="f"?(won(x)?"w":"l"):x.st=="c"?"n":"";if(s=="l")out=true;N.push({l:lab(x.l),s})});
 if(!out&&!N.some(n=>n.l=="Finale"||n.l=="Classement")){if(!B.length)N.push({l:"Tableau",s:""});N.push({l:"Finale",s:"",f:1})}
