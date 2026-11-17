@@ -262,9 +262,19 @@ b:has(.tvset) .tvset.sw{background:#b6ef2a;color:#0b1440!important;box-shadow:0 
 #pp-ck b{font-size:15px}
 @keyframes ppDraw{to{stroke-dashoffset:0}}
 @keyframes ppCkIn{from{opacity:0;transform:translate(-50%,14px) scale(.9)}}
-.pp-court{display:block;width:190px;height:auto;margin:0 auto 12px}
-.pp-ball{animation:ppBounce 1.6s var(--pp-ease) infinite;transform-box:fill-box}
-@keyframes ppBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.pp-c3{position:relative;width:300px;max-width:100%;height:150px;margin:0 auto 14px;perspective:520px}
+.pp-cf{position:absolute;left:8%;right:8%;top:6px;bottom:4px;border-radius:14px;transform:rotateX(52deg);transform-origin:50% 70%;background:radial-gradient(120% 90% at 30% 20%,#4f7dff,#2546c9 60%,#1a2f8f);border:3px solid rgba(255,255,255,.9);box-shadow:0 30px 40px -18px rgba(20,28,74,.55),inset 0 0 0 1px rgba(255,255,255,.2)}
+.pp-cf::after{content:"";position:absolute;inset:0;border-radius:11px;background:linear-gradient(115deg,rgba(255,255,255,.28),transparent 40%)}
+.pp-cf i{position:absolute;background:rgba(255,255,255,.85)}
+.pp-net{left:50%;top:-8%;bottom:-8%;width:4px;margin-left:-2px;background:#0d1440!important;box-shadow:0 0 0 1px rgba(255,255,255,.6)}
+.pp-svc.l{left:22%;top:0;bottom:0;width:2px}.pp-svc.r{right:22%;top:0;bottom:0;width:2px}
+.pp-mid.l{left:22%;right:50%;top:50%;height:2px}.pp-mid.r{left:50%;right:22%;top:50%;height:2px}
+.pp-bl{position:absolute;left:28%;top:60px;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f4ffbf,#b6ef2a 55%,#7fae12);box-shadow:0 0 18px rgba(182,239,42,.8);animation:ppArc 2.4s cubic-bezier(.45,0,.55,1) infinite}
+.pp-sh{position:absolute;left:28%;top:112px;width:22px;height:7px;border-radius:50%;background:rgba(13,20,64,.35);filter:blur(2px);animation:ppShd 2.4s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes ppArc{0%{transform:translate(0,40px) scale(.9)}50%{transform:translate(70px,-34px) scale(1.12)}100%{transform:translate(140px,40px) scale(.9)}}
+@keyframes ppShd{0%{transform:translateX(0) scale(1);opacity:.9}50%{transform:translateX(70px) scale(.5);opacity:.35}100%{transform:translateX(140px) scale(1);opacity:.9}}
+@media (prefers-reduced-motion:reduce){.pp-bl,.pp-sh{animation:none!important}}
+
 /* 6. la photo de piste derrière le tournoi */
 .hmh,.tdc{position:relative;overflow:hidden;isolation:isolate}
 .hmh::before,.tdc::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--pp-photo) center/cover;transform:scale(1.04);transition:transform 6s var(--pp-ease)}
@@ -3839,7 +3849,7 @@ function eqCards(){try{document.querySelectorAll(".fccols").forEach(w=>{const C=
 addEventListener("resize",()=>setTimeout(eqCards,80));
 function rstMark(){try{document.querySelectorAll(".rst:not([data-dg])").forEach(b=>{b.dataset.dg=1;if(/Supprimer|Effacer|effacer|Vider|vider|Retirer|retirer|🗑|Confirmer|Écraser|Reset|Réinitialiser|Forfait|Remplacer|remplacer/.test(b.textContent))b.classList.add("dg")})}catch(e){}}
 function setIco(v){JA.ico=v;saveJA();render()}
-const emptyCard=(ic,t,tx,btns)=>`<div class="card empt"><svg class="pp-court" viewBox="0 0 220 120" aria-hidden="true"><rect x="10" y="10" width="200" height="100" rx="10" fill="#2f5bff" opacity=".1"/><rect x="10" y="10" width="200" height="100" rx="10" fill="none" stroke="#2f5bff" stroke-width="3"/><line x1="110" y1="10" x2="110" y2="110" stroke="#141c4a" stroke-width="3"/><line x1="55" y1="10" x2="55" y2="110" stroke="#2f5bff" stroke-width="2" opacity=".5"/><line x1="165" y1="10" x2="165" y2="110" stroke="#2f5bff" stroke-width="2" opacity=".5"/><line x1="55" y1="60" x2="165" y2="60" stroke="#2f5bff" stroke-width="2" opacity=".5"/><circle class="pp-ball" cx="140" cy="45" r="9" fill="#b6ef2a" stroke="#7aa60f" stroke-width="2"/></svg><h3>${t}</h3><p>${tx}</p><div class="row" style="justify-content:center">${btns}</div></div>`;
+const emptyCard=(ic,t,tx,btns)=>`<div class="card empt"><div class="pp-c3"><div class="pp-cf"><i class="pp-net"></i><i class="pp-svc l"></i><i class="pp-svc r"></i><i class="pp-mid l"></i><i class="pp-mid r"></i></div><i class="pp-sh"></i><i class="pp-bl"></i></div><h3>${t}</h3><p>${tx}</p><div class="row" style="justify-content:center">${btns}</div></div>`;
 const emptyT=()=>{const nm={Poules:"les poules se créeront toutes seules","Poules 2":"les poules se créeront toutes seules",Tableau:"le tableau se créera tout seul",Classement:"le classement se calculera tout seul",Stats:"les statistiques se rempliront toutes seules",Communication:"les convocations seront prêtes à envoyer",Jeux:"les jeux pourront démarrer"}[tab]||"tout se mettra en place";return emptyCard("👥","Pas encore d’équipes",`Ajoute d’abord les équipes du tournoi : ensuite, ${nm}.`,`<button class="bt gr" onclick="go('Équipes')">👥 Ajouter les équipes</button><button class="bt bl" onclick="go('Réglages')">🎛️ Régler le tournoi</button>`)};
 window.DRAFT=null;
 function draftOn(){try{if(window.DRAFT)return;const real=S,n=Math.max(2,+S.n||S.teams.length||8),d=JSON.parse(JSON.stringify(S));
