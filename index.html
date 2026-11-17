@@ -142,7 +142,7 @@ header h1,#h{letter-spacing:-.025em!important}
 @keyframes ppDrop{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
 /* 3. les cartes se soulèvent, les boutons s'enfoncent avec une onde */
 .card,.fx,.hmh,.indc,.tdc{transition:transform .28s var(--pp-ease),box-shadow .28s var(--pp-ease)}
-@media (any-hover:hover){.card:hover,.fx:hover,.indc:hover{transform:translateY(-3px);box-shadow:0 4px 10px rgba(17,24,66,.08),0 20px 40px rgba(17,24,66,.16)!important}}
+@media (any-hover:hover){.card:hover,.fx:hover,.indc:hover{box-shadow:0 4px 10px rgba(17,24,66,.08),0 20px 40px rgba(17,24,66,.16)!important}}
 .hmh:active,.fx:active,.tdcr:active{transform:scale(.985)}
 button:active,.bt:active,a.bt:active{transform:scale(.95)}
 button,.bt,a.bt{transition:transform .14s var(--pp-ease),box-shadow .25s,filter .2s}
@@ -151,14 +151,15 @@ button,.bt,a.bt{transition:transform .14s var(--pp-ease),box-shadow .25s,filter 
 /* n°660 : survol à la souris / au trackpad de l’iPad (any-hover) */
 .fcd,.srw,.tdcr,.indr,.hm-r,.cvxr,table.st2 tr,.mgrp>summary,.cgrp>summary,.indmo>summary{transition:transform .25s var(--pp-ease),box-shadow .25s var(--pp-ease),background .25s}
 @media (any-hover:hover){
- .fcd:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 6px 14px rgba(17,24,66,.10),0 18px 36px rgba(17,24,66,.16)!important;z-index:2}
- .srw:hover,.tdcr:hover,.indr:hover,.hm-r:hover{transform:translateX(5px);background:rgba(182,239,42,.13)!important}
- .mgrp>summary:hover,.cgrp>summary:hover,.indmo>summary:hover{filter:brightness(1.04);transform:translateX(3px)}
+ .fcd:hover{box-shadow:0 6px 14px rgba(17,24,66,.10),0 18px 36px rgba(17,24,66,.16)!important;z-index:2}
+ .srw:hover,.tdcr:hover,.indr:hover,.hm-r:hover{background:rgba(182,239,42,.16)!important}
+ html body .srw.tl1.tl1:hover,html body .grp .srw.tl1.tl1:hover,html[data-theme] body .grp .srw.tl1.tl1:hover{background:rgba(182,239,42,.18)!important;border-radius:10px!important}
+ .mgrp>summary:hover,.cgrp>summary:hover,.indmo>summary:hover{filter:brightness(1.05)}
  table.st2 tr:hover>td{background:rgba(182,239,42,.14)!important}
- #tabs>button:not(.on):hover{transform:translateX(4px);background:rgba(255,255,255,.08)!important}
+ #tabs>button:not(.on):hover{background:rgba(255,255,255,.10)!important}
  button:hover,.bt:hover,a.bt:hover,.ab:hover{filter:brightness(1.06);box-shadow:0 6px 16px rgba(17,24,66,.18)}
- .fxcup:hover{transform:scale(1.15) rotate(-8deg)}
- .hmh:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,28,74,.3)!important}
+ 
+ .hmh:hover{box-shadow:0 16px 36px rgba(20,28,74,.3)!important}
 }
 .tlwait[role=button]{cursor:pointer}
 /* 4. la pastille du menu glisse */
@@ -167,7 +168,7 @@ button,.bt,a.bt{transition:transform .14s var(--pp-ease),box-shadow .25s,filter 
 #tabs.pp-pl>button.on{background:transparent!important;box-shadow:none!important}
 .pp-pill{position:absolute;left:0;right:0;z-index:0;border-radius:14px;background:#b6ef2a;box-shadow:0 8px 22px rgba(182,239,42,.35),inset 0 1px 0 rgba(255,255,255,.55);transition:top .45s var(--pp-spring),height .3s var(--pp-ease);pointer-events:none}
 #tabs>button .ic{transition:transform .35s var(--pp-spring)}
-@media (any-hover:hover){#tabs>button:hover .ic{transform:scale(1.15) rotate(-6deg)}}
+@media (any-hover:hover){#tabs>button:hover .ic{}}
 /* 1. le match en cours se voit */
 @property --pp-a{syntax:"<angle>";inherits:false;initial-value:0deg}
 .fx.cours{border:2px solid transparent!important;background:linear-gradient(var(--pp-fxbg,#fff),var(--pp-fxbg,#fff)) padding-box,conic-gradient(from var(--pp-a),#2f5bff,#b6ef2a,#2f5bff) border-box!important;animation:ppSpin 4s linear infinite}
