@@ -13,6 +13,9 @@ body{margin:0;min-height:100vh;font-family:-apple-system,system-ui,"Segoe UI",Ro
 .box.sb{border-left:7px solid var(--s);padding:8px 16px 10px 16px}.box.sb>.kv:first-child{border-top:0}
 .tm{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:15px;min-width:0}.tm:first-child{border-top:0}.tm .nm{flex:1;min-width:0}.dot{flex:none;width:26px;height:26px;border-radius:50%;background:var(--bg);color:var(--mu);font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center}
 .hv{--p:#cfe9bd;--s:#3b8a1e}.he{--p:#f6c6d5;--s:#d9467a}.hp{--p:#c4d3f8;--s:#2a4bc4}.hs{--p:#f9dcb3;--s:#e08a1e}
+.ho{--p:#e4f7b8;--s:#8fc417}
+.box.ho{background:#fbfff0}
+.box.ho .dot{background:#141c4a;color:#b6ef2a}
 .lab{font-size:12px;font-weight:900;letter-spacing:.07em;color:var(--mu);margin:0 0 8px;text-transform:uppercase}
 h1{font-size:22px;margin:0 0 6px}p{margin:0 0 8px;color:var(--mu);line-height:1.45}
 .nm{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}.nm b{font-weight:800}
@@ -170,7 +173,7 @@ h+=`<div class="sh he"><i>👥</i>Ton équipe</div><div class="box sb he"><div c
 if(g)h+=`<div class="sh hp"><i>🎾</i><span style="flex:none">Ta poule ${esc(g.n)}</span><span class="pnote">(le juge-arbitre peut la modifier jusqu’au dernier moment)</span></div><div class="box sb hp">${(()=>{const mi=g.r.findIndex(r=>r[0]==w.t)+1,N=k=>k==mi?`<b style="background:#fff1a8;border-radius:6px;padding:1px 6px">toi (n°${k})</b>`:`n°${k}`;
 let s=g.r.map((r,j)=>r[0]==w.t?`<div class="tm" style="background:#fff8cc;margin:0 -8px;padding:9px 8px;border-radius:10px"><span class="dot" style="background:#fff1a8;color:var(--ink)">${j+1}</span><span class="nm"><b>Toi</b> · ${esc(tshort(r[0]))}</span></div>`:`<div class="tm"><span class="dot">${j+1}</span><span class="nm">${esc(tshort(r[0]))}</span></div>`).join("");
 if(g.r.length==4){const O=[`${N(1)} contre ${N(4)}`,`${N(2)} contre ${N(3)}`,"Gagnant du match 1 contre perdant du match 2","Gagnant du match 2 contre perdant du match 1","Gagnant du match 1 contre gagnant du match 2 <span style=\"color:var(--mu)\">(l’éventuelle finale de poule)</span>","Perdant du match 1 contre perdant du match 2"];
-s+=`<div class="lab" style="margin:16px 0 4px">Ordre des matchs</div>${O.map((o,j)=>`<div class="tm" style="font-size:14px"><span class="dot">${j+1}</span><span style="flex:1;min-width:0">${o}</span></div>`).join("")}<p class="sm" style="margin:8px 0 0;color:var(--mu)">* L’ordre des matchs peut être modifié par le juge-arbitre en fonction d’éléments extérieurs ou imprévus (équipe absente, retard, blessure, météo…).</p>`}
+s+=`</div><div class="sh ho"><i>📋</i>Ordre des matchs</div><div class="box sb ho">${O.map((o,j)=>`<div class="tm" style="font-size:14px"><span class="dot">${j+1}</span><span style="flex:1;min-width:0">${o}</span></div>`).join("")}<p class="sm" style="margin:8px 0 0;color:var(--mu)">* L’ordre des matchs peut être modifié par le juge-arbitre en fonction d’éléments extérieurs ou imprévus (équipe absente, retard, blessure, météo…).</p>`}
 else s+=`<p class="sm" style="margin:10px 0 0;color:var(--mu)">L’ordre des matchs dépendra du déroulement du tournoi.</p>`;return s})()}</div>`;
 h+=infoBox();return h}
 function infoBox(){const rows=[];if(D.fm)rows.push(["Format des matchs",D.fm]);if(D.wu)rows.push(["Échauffement",D.wu+" minutes"]);if(D.np)rows.push(["Pistes",D.np]);if(D.a)rows.push(["Adresse",D.a]);
