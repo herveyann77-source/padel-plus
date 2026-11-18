@@ -101,6 +101,16 @@ td{padding:8px 2px;border-top:1px solid var(--line);text-align:center;vertical-a
 .pcl{flex:1;height:3px;border-radius:99px;background:#e3e8f7;margin-top:10px;min-width:10px}
 .pcl.on{background:#1f9d57}
 @media (prefers-reduced-motion:reduce){.toib,.toik i,.pcn.n i{animation:none!important}}
+
+.plc .plr{display:flex;align-items:center;gap:14px;margin-top:4px}
+.pln{display:inline-flex;align-items:baseline;justify-content:center;min-width:76px;height:66px;padding:0 12px;border-radius:18px;background:var(--ink);color:var(--lime);font-size:40px;font-weight:900;letter-spacing:-.02em}
+.pln small{font-size:18px;margin-left:2px}
+.plt{font-size:16px;font-weight:800;color:var(--mu);display:flex;flex-direction:column;gap:3px}
+.plu{color:#1f9d57;font-size:15px}.pld{color:#c0392b;font-size:15px}
+.qual .qsub{font-size:14px;color:var(--mu);margin:2px 0 8px}
+.qr{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:15px;font-weight:700}
+.qr b{white-space:nowrap;font-size:14px;border-radius:99px;padding:3px 10px}
+.qok{background:#e4f7ea;color:#16753f}.qko{background:#fdeced;color:#a32d2d}.qmid{background:#fff3d6;color:#9a5b00}
 </style></head><body>
 <div class="top"><div class="w"><img src="icon-192.png" alt=""><div style="min-width:0;flex:1"><b id="tt">Mon tournoi</b><small id="st">Padel+</small><span id="ph"></span></div></div></div>
 <div class="c" id="m"><p>Chargement…</p></div>
@@ -161,6 +171,20 @@ let tt=null;function toast(t){let e=$("toast");if(!e){e=document.createElement("
 /* ---------- briques ---------- */
 function nextOf(w){const L=myMs(w).filter(x=>x.st!="f"&&x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0);L.sort((a,b)=>(a.st=="c"?-1:0)-(b.st=="c"?-1:0)||(toMin(a.h)??9999)-(toMin(b.h)??9999));return L[0]||null}
 /* n°661 : le parcours du joueur en frise fine (poule, puis tableau) */
+/* n°669 : ta place en direct + ce qu’il te faut pour te qualifier */
+function placeCard(w){try{const R=(D.rk||[]).find(r=>r[0]==w.t),p=R?R[1]:null;if(!p)return "";const n=D.T.filter(T=>!T[2]&&(T[0][0]||T[1][0])).length,k="pj_pl_"+pid,pv=LS(k),dl=pv&&pv!=p?pv-p:0;LW(k,p);
+return `<div class="box plc"><div class="lab">TA PLACE EN DIRECT</div><div class="plr"><span class="pln">${p}<small>${p==1?"er":"e"}</small></span><span class="plt">sur ${n} équipes${dl?`<b class="${dl>0?"plu":"pld"}">${dl>0?"▲":"▼"} ${Math.abs(dl)} place${Math.abs(dl)>1?"s":""}</b>`:""}</span></div><p class="sm" style="margin:6px 0 0;color:var(--mu)">Se met à jour après chaque score.</p></div>`}catch(e){return ""}}
+function qualCard(w){try{const g=poolOf(w.t);if(!g)return "";const q=D.q||1,teams=g.r.map(r=>r[0]),ok=x=>x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0,PM=D.M.filter(x=>x.g&&String(x.l).indexOf("Poule "+g.n)==0&&ok(x)),mine=PM.filter(x=>(x.a==w.t||x.b==w.t)&&x.st!="f");
+if(mine.length!=1||PM.some(x=>!(x.a==w.t||x.b==w.t)&&x.st!="f"))return "";const done=PM.filter(x=>x.st=="f");if(!done.length||done.some(x=>!/^\d+-\d+$/.test(x.s||"")))return "";
+const TG=Math.max(...done.map(x=>Math.max(...x.s.split("-").map(Number))));if(!(TG>=4))return "";const L=mine[0],op=L.a==w.t?L.b:L.a;
+const verdict=(mg,og)=>{const st={};teams.forEach(t=>st[t]={w:0,d:0});const res=[...done.map(x=>{const s=x.s.split("-").map(Number);return [x.a,x.b,s[0],s[1]]}),[w.t,op,mg,og]];const h2h={};
+res.forEach(([a,b,sa,sb])=>{if(!st[a]||!st[b])return;st[a].d+=sa-sb;st[b].d+=sb-sa;if(sa>sb){st[a].w++;h2h[a+"-"+b]=a;h2h[b+"-"+a]=a}else{st[b].w++;h2h[a+"-"+b]=b;h2h[b+"-"+a]=b}});
+const cmp=(x,y)=>(st[y].w-st[x].w)||(st[y].d-st[x].d);const me=st[w.t];let ahead=0,tie=[];teams.forEach(t=>{if(t==w.t)return;const c=cmp(t,w.t);if(c<0)ahead++;else if(c==0)tie.push(t)});
+if(tie.length==1){if(h2h[w.t+"-"+tie[0]]==tie[0])ahead++;tie=[]}const best=ahead+1,worst=ahead+1+tie.length;return worst<=q?"Q":best>q?"E":"?"};
+const W=[],P=[];for(let k=0;k<TG;k++){W.push([k,verdict(TG,k)]);P.push([k,verdict(k,TG)])}
+const lab={Q:"✅ qualifié",E:"❌ éliminé","?":"⚖️ à départager"},grp=(A,win)=>{const out=[];A.slice().sort((x,y)=>win?x[0]-y[0]:y[0]-x[0]).forEach(([k,v])=>{const l=out[out.length-1];if(l&&l.v==v)l.k.push(k);else out.push({v,k:[k]})});return out.map(o=>{const sc=k=>win?TG+"-"+k:k+"-"+TG,ks=o.k;const txt=ks.length==1?sc(ks[0]):sc(ks[0])+" à "+sc(ks[ks.length-1]);return `<div class="qr"><span>${win?"Gagne":"Perds"} ${txt}</span><b class="q${o.v=="Q"?"ok":o.v=="E"?"ko":"mid"}">${lab[o.v]}</b></div>`}).join("")};
+const allW=W.every(x=>x[1]=="Q"),allP=P.every(x=>x[1]=="Q"),noP=P.every(x=>x[1]=="E");
+return `<div class="box qual"><div class="lab">CE QU’IL TE FAUT POUR TE QUALIFIER</div><div class="qsub">Dernier match de poule contre <b>${esc(tshort(op))}</b></div>${allP?`<div class="qr"><span>Gagne ou perds</span><b class="qok">✅ déjà qualifié</b></div>`:(allW?`<div class="qr"><span>Gagne</span><b class="qok">✅ qualifié</b></div>`:grp(W,1))+(noP?`<div class="qr"><span>Perds</span><b class="qko">❌ éliminé</b></div>`:grp(P,0))}<p class="sm" style="margin:8px 0 0;color:var(--mu)">Calcul selon les règles de départage : victoires, puis différence de jeux, puis confrontation directe. ${q>1?"Les "+q+" premiers":"Le premier"} de la poule ${q>1?"sont qualifiés":"est qualifié"}.</p></div>`}catch(e){return ""}}
 function parcours(w){try{const M=myMs(w).filter(x=>x.a!=null&&x.b!=null&&x.a>=0&&x.b>=0),P=M.filter(x=>x.g),B=M.filter(x=>!x.g).sort((a,b)=>(toMin(a.h)??9999)-(toMin(b.h)??9999)),won=x=>x.st=="f"&&x.w===(x.a==w.t?0:1),lab=l=>{l=String(l||"").replace(/ \d+$/,"");return /1\/16|seizi/i.test(l)?"16e":/1\/8|huiti/i.test(l)?"8e":/quart|1\/4/i.test(l)?"Quart":/demi|1\/2/i.test(l)?"Demi":/^finale/i.test(l)?"Finale":/place|classement/i.test(l)?"Classement":l.split(" ")[0]},N=[];
 if(D.G&&D.G.length){const pd=P.length&&P.every(x=>x.st=="f"),pc=P.some(x=>x.st=="c"||x.st=="f");N.push({l:"Poule",s:pd?"w":pc?"n":""})}
 let out=false;B.forEach(x=>{const s=x.st=="f"?(won(x)?"w":"l"):x.st=="c"?"n":"";if(s=="l")out=true;N.push({l:lab(x.l),s})});
@@ -190,10 +214,10 @@ return rows.length||D.ru?`<div class="sh hs"><i>💡</i>Bon à savoir</div><div 
 function vJourJ(w){const T=D.T[w.t],ar=T[w.k=="b"?4:3]||LS(doneK("ar")),x=nextOf(w);let h="";
 h+=x?heroNext(w,x):`<div class="hero"><div class="k">AUJOURD’HUI</div><div class="w">${T[9]?"Convocation "+esc(T[9].replace(":","h")):"C’est le jour J"}</div><div class="s">${esc(D.l||"")}</div></div>`;
 if(D.ci)h+=ar?`<div class="bt done">📍 Arrivée enregistrée</div>`:`<button class="bt" id="arb" onclick='arrived(${JSON.stringify(w)})'>📍 Je suis arrivé</button>`;
-h+=poolBox(w,"Ta poule")+myRes(w)+`<div class="g2">${D.l||D.a?`<a class="bt sec" href="${mapsUrl()}" target="_blank" rel="noopener">🗺️ Itinéraire</a>`:""}<button class="bt sec" onclick="tab='pistes';draw()">📍 Les pistes</button></div>`+infoBox();return h}
+h+=placeCard(w)+qualCard(w)+poolBox(w,"Ta poule")+myRes(w)+`<div class="g2">${D.l||D.a?`<a class="bt sec" href="${mapsUrl()}" target="_blank" rel="noopener">🗺️ Itinéraire</a>`:""}<button class="bt sec" onclick="tab='pistes';draw()">📍 Les pistes</button></div>`+infoBox();return h}
 function vPendant(w){const x=nextOf(w),done=!x&&myMs(w).every(z=>z.st=="f"||z.a==null||z.b==null);let h="";
 h+="";if(x)h+=heroNext(w,x);else if(done)h+=`<div class="hero"><div class="k">TES MATCHS SONT TERMINÉS</div><div class="w">Merci !</div><div class="s">Suis la suite du tournoi dans l’onglet Tableau.</div></div>`;else h+=`<div class="hero"><div class="k">EN ATTENTE</div><div class="w">Ton prochain adversaire se décide</div><div class="s">L’écran se met à jour tout seul.</div></div>`;
-h+=parcours(w);const T=D.T[w.t];if(D.ci&&!(T[w.k=="b"?4:3]||LS(doneK("ar"))))h+=`<button class="bt" id="arb" onclick='arrived(${JSON.stringify(w)})'>📍 Je suis arrivé</button>`;
+h+=parcours(w)+placeCard(w)+qualCard(w);const T=D.T[w.t];if(D.ci&&!(T[w.k=="b"?4:3]||LS(doneK("ar"))))h+=`<button class="bt" id="arb" onclick='arrived(${JSON.stringify(w)})'>📍 Je suis arrivé</button>`;
 h+=poolBox(w)+myRes(w);return h}
 function vApres(w){const R=(D.rk||[]).find(r=>r[0]==w.t),pl=R?R[1]:null,n=D.T.filter(T=>!T[2]&&(T[0][0]||T[1][0])).length,pts=pl&&D.pts?D.pts[pl-1]:0,med=pl==1?"🥇":pl==2?"🥈":pl==3?"🥉":"🎾";
 const L=myMs(w).filter(x=>x.st=="f"),v=L.filter(x=>x.w===(x.a==w.t?0:1)).length;let jg=0,jp=0;L.forEach(x=>{const i=x.a==w.t?0:1;(x.s||"").split(" ").forEach(z=>{const q=z.split("-");if(q.length==2){jg+=+q[i]||0;jp+=+q[1-i]||0}})});
