@@ -111,6 +111,7 @@ td{padding:8px 2px;border-top:1px solid var(--line);text-align:center;vertical-a
 .qr{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:15px;font-weight:700}
 .qr b{white-space:nowrap;font-size:14px;border-radius:99px;padding:3px 10px}
 .qok{background:#e4f7ea;color:#16753f}.qko{background:#fdeced;color:#a32d2d}.qmid{background:#fff3d6;color:#9a5b00}
+.bt.wab{background:#25d366;color:#fff;margin-top:12px}.bt.wab small{display:block;font-size:13px;font-weight:600;opacity:.9;margin-top:2px}
 </style></head><body>
 <div class="top"><div class="w"><img src="icon-192.png" alt=""><div style="min-width:0;flex:1"><b id="tt">Mon tournoi</b><small id="st">Padel+</small><span id="ph"></span></div></div></div>
 <div class="c" id="m"><p>Chargement…</p></div>
@@ -209,8 +210,9 @@ if(g.r.length==4){const O=[`${N(1)} contre ${N(4)}`,`${N(2)} contre ${N(3)}`,"Ga
 s+=`</div><div class="sh ho"><i>📋</i>Ordre des matchs</div><div class="box sb ho">${O.map((o,j)=>`<div class="tm" style="font-size:14px"><span class="dot">${j+1}</span><span style="flex:1;min-width:0">${o}</span></div>`).join("")}<p class="sm" style="margin:8px 0 0;color:var(--mu)">* L’ordre des matchs peut être modifié par le juge-arbitre en fonction d’éléments extérieurs ou imprévus (équipe absente, retard, blessure, météo…).</p>`}
 else s+=`<p class="sm" style="margin:10px 0 0;color:var(--mu)">L’ordre des matchs dépendra du déroulement du tournoi.</p>`;return s})()}</div>`;
 h+=infoBox();return h}
+function waBox(){/* n°671 : canal WhatsApp de la catégorie */return D.w&&/^https:\/\//.test(D.w)?`<a class="bt wab" href="${esc(D.w)}" target="_blank" rel="noopener">💬 Rejoindre le canal WhatsApp ${esc(D.c||"")}<small>les prochains tournois de ta catégorie, en premier</small></a>`:""}
 function infoBox(){const rows=[];if(D.fm)rows.push(["Format des matchs",D.fm]);if(D.wu)rows.push(["Échauffement",D.wu+" minutes"]);if(D.np)rows.push(["Pistes",D.np]);if(D.a)rows.push(["Adresse",D.a]);
-return rows.length||D.ru?`<div class="sh hs"><i>💡</i>Bon à savoir</div><div class="box sb hs">${rows.map(r=>`<div class="kv"><span>${esc(r[0])}</span><b>${esc(r[1])}</b></div>`).join("")}${D.ru?`<p style="margin:8px 0 0">${esc(D.ru)}</p>`:""}</div>`:""}
+return (rows.length||D.ru?`<div class="sh hs"><i>💡</i>Bon à savoir</div><div class="box sb hs">${rows.map(r=>`<div class="kv"><span>${esc(r[0])}</span><b>${esc(r[1])}</b></div>`).join("")}${D.ru?`<p style="margin:8px 0 0">${esc(D.ru)}</p>`:""}</div>`:"")+waBox()}
 function vJourJ(w){const T=D.T[w.t],ar=T[w.k=="b"?4:3]||LS(doneK("ar")),x=nextOf(w);let h="";
 h+=x?heroNext(w,x):`<div class="hero"><div class="k">AUJOURD’HUI</div><div class="w">${T[9]?"Convocation "+esc(T[9].replace(":","h")):"C’est le jour J"}</div><div class="s">${esc(D.l||"")}</div></div>`;
 if(D.ci)h+=ar?`<div class="bt done">📍 Arrivée enregistrée</div>`:`<button class="bt" id="arb" onclick='arrived(${JSON.stringify(w)})'>📍 Je suis arrivé</button>`;
@@ -224,7 +226,7 @@ const L=myMs(w).filter(x=>x.st=="f"),v=L.filter(x=>x.w===(x.a==w.t?0:1)).length;
 let h=`<div class="hero win"><div class="med">${med}</div><div class="w">${pl?pl+(pl==1?"er":"e")+" sur "+n:"Classement en cours"}</div>${pts?`<div class="cd">+ ${pts} points FFT</div>`:""}</div>`;
 h+=parcours(w);h+=`<div class="box"><div class="lab">Ton tournoi</div><div class="kv"><span>Matchs joués</span><b>${L.length}</b></div><div class="kv"><span>Victoires</span><b>${v}</b></div><div class="kv"><span>Jeux gagnés / perdus</span><b>${jg} / ${jp}</b></div></div>`;
 const top=(D.rk||[]).filter(r=>r[1]&&r[1]<=3).sort((a,b)=>a[1]-b[1]);if(top.length)h+=`<div class="box"><div class="lab">Podium</div>${top.map(r=>`<div class="pod"><i>${["🥇","🥈","🥉"][r[1]-1]}</i><span class="nm">${esc(tshort(r[0]))}</span></div>`).join("")}</div>`;
-h+=myRes(w);if((D.cal||[]).length)h+=`<div class="box"><div class="lab">Prochains tournois du club</div>${D.cal.map(c=>`<div class="kv"><span>${esc(fdate(c[0]))}</span><b>${esc(c[1])}</b></div>`).join("")}</div>`;
+h+=myRes(w)+waBox();if((D.cal||[]).length)h+=`<div class="box"><div class="lab">Prochains tournois du club</div>${D.cal.map(c=>`<div class="kv"><span>${esc(fdate(c[0]))}</span><b>${esc(c[1])}</b></div>`).join("")}</div>`;
 return h}
 function vTableau(w){const B=D.M.filter(x=>!x.g),P=D.G||[];if(!sub){const known=B.some(x=>x.a!=null&&x.a>=0&&x.b!=null&&x.b>=0),mp=w?P.findIndex(g=>g.r.some(r=>r[0]==w.t)):-1;sub=known||!P.length?"tab":"P"+Math.max(0,mp)}let h=`<div class="sbt">${B.length?`<button class="${sub=="tab"?"on":""}" onclick="sub='tab';draw()">🏆 Tableau</button>`:""}${P.map((g,i)=>`<button class="${sub=="P"+i?"on":""}" onclick="sub='P${i}';draw()">Poule ${esc(g.n)}</button>`).join("")}</div>`;
 if(sub[0]=="P"){const g=P[+sub.slice(1)];if(g){const t0=w?w.t:-1;h+=`<div class="box"><div class="lab">Poule ${esc(g.n)}</div><table><colgroup><col style="width:9%"><col><col style="width:10%"><col style="width:10%"><col style="width:13%"><col style="width:12%"></colgroup><tr><th></th><th class="l">Équipe</th><th>J</th><th>V</th><th>+/-</th><th>Pts</th></tr>${g.r.map((r,k)=>`<tr class="${r[0]==t0?"me":""}${r[5]?" q":""}"><td>${k+1}</td><td class="l"><span class="nm">${esc(tshort(r[0]))}</span></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]>0?"+"+r[3]:r[3]}</td><td><b>${r[4]}</b></td></tr>`).join("")}</table></div>`;h+=D.M.filter(x=>x.g&&x.l.indexOf("Poule "+g.n)==0).map(x=>mcard(x,w)).join("")}return h}
