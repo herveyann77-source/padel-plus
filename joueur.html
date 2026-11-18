@@ -14,6 +14,15 @@ body{margin:0;min-height:100vh;font-family:-apple-system,system-ui,"Segoe UI",Ro
 .tm{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:15px;min-width:0}.tm:first-child{border-top:0}.tm .nm{flex:1;min-width:0}.dot{flex:none;width:26px;height:26px;border-radius:50%;background:var(--bg);color:var(--mu);font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center}
 .hv{--p:#cfe9bd;--s:#3b8a1e}.he{--p:#f6c6d5;--s:#d9467a}.hp{--p:#c4d3f8;--s:#2a4bc4}.hs{--p:#f9dcb3;--s:#e08a1e}
 .ho{--p:#e4f7b8;--s:#8fc417}
+.tm.pt{align-items:center}
+.tm.pme{background:#fff8cc;margin:0 -8px;padding:9px 8px;border-radius:10px}
+.ppl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}
+.ppl b{font-weight:800}
+.pcl{margin-left:6px;font-size:12px;font-weight:700;color:var(--mu)}
+.ptoi{font-style:normal;font-size:11px;font-weight:900;letter-spacing:.06em;color:var(--ink);background:#fff1a8;border-radius:99px;padding:1px 7px;display:inline-block;margin-bottom:2px}
+.pteam{flex:none;text-align:right;line-height:1.1}
+.pteam small{display:block;font-size:9.5px;font-weight:900;letter-spacing:.08em;color:var(--mu)}
+.pteam b{font-size:16px;font-weight:900}
 .box.ho{background:#fbfff0}
 .box.ho .dot{background:#141c4a;color:#b6ef2a}
 .lab{font-size:12px;font-weight:900;letter-spacing:.07em;color:var(--mu);margin:0 0 8px;text-transform:uppercase}
@@ -171,7 +180,7 @@ if(D.l||D.a){const q=encodeURIComponent([D.l,D.a].filter(Boolean).join(", "));h+
 h+=`<button class="bt sec" onclick="ics()">📅 Ajouter à mon agenda (rappel 2 h avant)</button>`;
 h+=`<div class="sh he"><i>👥</i>Ton équipe</div><div class="box sb he"><div class="kv"><span>Toi</span><b>${esc(p[1]+" "+p[0])}</b></div>${pa&&pa[0]?`<div class="kv"><span>Partenaire</span><b>${esc(pa[1]+" "+pa[0])}</b></div>`:""}${role?`<div class="kv"><span>Place</span><b>${esc(role.split(" · ")[0])}</b></div>`:""}</div>`;
 if(g)h+=`<div class="sh hp"><i>🎾</i><span style="flex:none">Ta poule ${esc(g.n)}</span><span class="pnote">(le juge-arbitre peut la modifier jusqu’au dernier moment)</span></div><div class="box sb hp">${(()=>{const mi=g.r.findIndex(r=>r[0]==w.t)+1,N=k=>k==mi?`<b style="background:#fff1a8;border-radius:6px;padding:1px 6px">toi (n°${k})</b>`:`n°${k}`;
-let s=g.r.map((r,j)=>r[0]==w.t?`<div class="tm" style="background:#fff8cc;margin:0 -8px;padding:9px 8px;border-radius:10px"><span class="dot" style="background:#fff1a8;color:var(--ink)">${j+1}</span><span class="nm"><b>Toi</b> · ${esc(tshort(r[0]))}</span></div>`:`<div class="tm"><span class="dot">${j+1}</span><span class="nm">${esc(tshort(r[0]))}</span></div>`).join("");
+let s=g.r.map((r,j)=>{/* n°668 : NOM Prénom de chaque joueur, classement individuel et classement d’équipe */const T=D.T[r[0]]||[],me=r[0]==w.t,cl=v=>v?`<small class="pcl">${esc(v)}${/^\d+$/.test(v)?"e":""}</small>`:"",pl=k=>{const q=T[k]||[];return q[0]||q[1]?`<div class="ppl"><b>${esc(q[0]||"")}</b> ${esc(q[1]||"")}${cl(T[11+k])}</div>`:""};return `<div class="tm pt${me?" pme":""}"><span class="dot"${me?' style="background:#fff1a8;color:var(--ink)"':""}>${j+1}</span><span class="nm" style="flex:1;min-width:0">${me?'<em class="ptoi">Toi</em>':""}${pl(0)}${pl(1)}</span>${T[13]?`<span class="pteam"><small>ÉQUIPE</small><b>${esc(T[13])}</b></span>`:""}</div>`}).join("");
 if(g.r.length==4){const O=[`${N(1)} contre ${N(4)}`,`${N(2)} contre ${N(3)}`,"Gagnant du match 1 contre perdant du match 2","Gagnant du match 2 contre perdant du match 1","Gagnant du match 1 contre gagnant du match 2 <span style=\"color:var(--mu)\">(l’éventuelle finale de poule)</span>","Perdant du match 1 contre perdant du match 2"];
 s+=`</div><div class="sh ho"><i>📋</i>Ordre des matchs</div><div class="box sb ho">${O.map((o,j)=>`<div class="tm" style="font-size:14px"><span class="dot">${j+1}</span><span style="flex:1;min-width:0">${o}</span></div>`).join("")}<p class="sm" style="margin:8px 0 0;color:var(--mu)">* L’ordre des matchs peut être modifié par le juge-arbitre en fonction d’éléments extérieurs ou imprévus (équipe absente, retard, blessure, météo…).</p>`}
 else s+=`<p class="sm" style="margin:10px 0 0;color:var(--mu)">L’ordre des matchs dépendra du déroulement du tournoi.</p>`;return s})()}</div>`;
