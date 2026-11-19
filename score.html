@@ -15,6 +15,13 @@ h1{font-size:21px;margin:0 0 6px}p{margin:0 0 12px;color:var(--mu);line-height:1
 .nums button{border:0;border-radius:10px;padding:10px 0;font-size:18px;font-weight:900;background:#eef1fb;color:var(--tx)}.nums button.on{background:var(--ink);color:var(--lime)}
 .sum{font-size:30px;font-weight:900;text-align:center;margin:10px 0}.big{font-size:56px;text-align:center;margin:4px 0}.err{color:#c92a2a;font-weight:700}
 .ft{text-align:center;color:var(--mu);font-size:12px;margin-top:16px}
+.pn{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm b{min-height:0}.vous{display:inline-block;background:#2a4bc4;color:#fff;font-size:11px;border-radius:8px;padding:1px 8px;margin-bottom:3px}
+.row{align-items:stretch;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}.tm{min-width:0}.tm{display:flex;flex-direction:column}.tm .nums{margin-top:auto;padding-top:8px}
+.tm.me .nums button{background:#fff;box-shadow:0 0 0 1px #c9d4f5 inset}.tm.me .nums button.on{background:var(--ink);box-shadow:none}
+.wb{display:flex;align-items:center;gap:14px}.wb .wc{font-size:30px;flex:none;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid #ffcf3f;display:flex;align-items:center;justify-content:center}.wb .wn{flex:1;min-width:0}
+.wbox{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#fff1c2,#fff);border-radius:16px;padding:12px;margin:0 0 14px;font-weight:800}.wbox>div{flex:1;min-width:0}.wbox .wc{font-size:24px}.wg{background:#26357a;color:#ffcf3f;font-size:26px;border-radius:12px;padding:6px 14px}
+.lbox{color:var(--mu);font-weight:800;margin:-4px 0 6px}.nums.big{gap:8px}.nums.big button{font-size:24px;padding:14px 0}
 </style></head><body><div class="c"><div class="hd"><img src="icon-192.png" alt=""><div><b>Padel+</b><small id="tt">Envoyer le score</small></div></div><div class="box" id="m"><p>Chargement…</p></div><div class="ft">Le juge-arbitre peut toujours corriger le score.</div></div>
 <script>
 const Q=new URLSearchParams(location.search),$=id=>document.getElementById(id),m=$("m");
@@ -30,17 +37,28 @@ $("tt").textContent="Piste "+court+(D&&D.t?" · "+D.t:"");
 if(!D||D.none||!D.pk){m.innerHTML='<div class="big">🎾</div><h1>Piste '+court+'</h1><p>Aucun match en cours sur cette piste pour l’instant.<br>Le juge-arbitre doit d’abord lancer votre match.</p><button class="b go" onclick="load()">🔄 Actualiser</button>';return}
 let done=null;try{done=localStorage.getItem(sentK(D.pk))}catch(e){}if(done)return thanks(true);
 pick()}
-function pick(){m.innerHTML='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Quelle est ton équipe ?</h1><p>Touche <b>ton</b> équipe.</p>'+[0,1].map(i=>'<button class="b" onclick="choose('+i+')">'+(D[i?"b":"a"]||[]).map(esc).join("<br>")+'</button>').join("")+'<button class="b ln" onclick="load()">🔄 Ce n’est pas notre match</button>'}
-function choose(i){team=i;SC=Array.from({length:D.n||1},()=>["",""]);draw()}
+function pick(){m.innerHTML='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Quelle est ton équipe ?</h1><p>Touche <b>ton</b> équipe.</p>'+[0,1].map(i=>'<button class="b" onclick="choose('+i+')">'+pn(D[i?"b":"a"])+'</button>').join("")+'<button class="b ln" onclick="load()">🔄 Ce n’est pas notre match</button>'}
+function choose(i){team=i;SC=Array.from({length:D.n||1},()=>["",""]);if((D.n||1)==1)return winS();draw()}
+/* n°683 : comme dans Padel+ : d’abord « Qui a gagné ? », puis les jeux de l’équipe qui a perdu (match en 1 set) */
+let WIN=null;
+function winS(){WIN=null;m.innerHTML='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Qui a gagné ?</h1><p>Touche l’équipe qui a gagné le match.</p>'+[0,1].map(x=>'<button class="b wb" onclick="pickW('+x+')"><span class="wc">🏆</span><span class="wn">'+(x==team?'<span class="vous">Vous</span>':'')+pn(D[x?"b":"a"])+'</span></button>').join("")+'<button class="b ln" onclick="pick()">← Changer d’équipe</button>'}
+function pickW(x){WIN=x;const mx=(D.mx||[9])[0]??9,lo=1-x;let h='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><div class="wbox"><span class="wc">🏆</span><div>'+pn(D[x?"b":"a"])+'</div><b class="wg">'+mx+'</b></div><h1>Combien de jeux pour l’autre équipe ?</h1><div class="lbox">'+pn(D[lo?"b":"a"])+'</div><div class="nums big">';
+for(let k=0;k<mx;k++)h+='<button class="'+(SC[0][lo]===String(k)?"on":"")+'" onclick="setL('+k+')">'+k+'</button>';
+h+='</div>'+(SC[0][lo]!==""?'<div class="sum">'+SC[0][x]+' - '+SC[0][lo]+'</div><button class="b go" id="gb" onclick="send()">✅ Envoyer ce score</button>':'')+'<button class="b ln" onclick="winS()">← Changer le vainqueur</button>';m.innerHTML=h}
+function setL(k){SC[0][WIN]=String((D.mx||[9])[0]??9);SC[0][1-WIN]=String(k);pickW(WIN)}
 function nums(s,x){const mx=(D.mx||[9])[s]??9,v=SC[s][x];let h="";for(let k=0;k<=mx;k++)h+='<button class="'+(String(k)===v?"on":"")+'" onclick="setv('+s+','+x+','+k+')">'+k+'</button>';return h}
 function setv(s,x,k){SC[s][x]=String(k);draw()}
 function draw(){const n=D.n||1;let h='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Le score</h1><p>Touche le nombre de jeux de chaque équipe.</p>';
-for(let s=0;s<n;s++){h+='<div class="set">'+(n>1?'<h3>'+esc((D.sl||[])[s]||("Set "+(s+1)))+'</h3>':'')+'<div class="row">'+[0,1].map(x=>'<div class="tm'+(x==team?" me":"")+'"><b>'+(D[x?"b":"a"]||[]).map(esc).join("<br>")+(x==team?" <span style=\"color:#2a4bc4\">(vous)</span>":"")+'</b><div class="nums">'+nums(s,x)+'</div></div>').join("")+'</div></div>'}
+for(let s=0;s<n;s++){h+='<div class="set">'+(n>1?'<h3>'+esc((D.sl||[])[s]||("Set "+(s+1)))+'</h3>':'')+'<div class="row">'+[0,1].map(x=>'<div class="tm'+(x==team?" me":"")+'"><b>'+(x==team?'<span class="vous">Vous</span>':'')+pn(D[x?"b":"a"])+'</b><div class="nums">'+nums(s,x)+'</div></div>').join("")+'</div></div>'}
 const okS=SC.filter(q=>q[0]!==""&&q[1]!=="");h+='<div class="sum">'+(okS.length?okS.map(q=>q[0]+" - "+q[1]).join("  "):"–")+'</div>';
 h+='<button class="b go" id="gb" onclick="send()" '+(okS.length?"":"disabled style=\"opacity:.45\"")+'>✅ Envoyer ce score</button><button class="b ln" onclick="pick()">← Changer d’équipe</button>';m.innerHTML=h}
 async function send(){const sc=SC.filter(q=>q[0]!==""&&q[1]!=="").map(q=>[+q[0],+q[1]]);if(!sc.length)return;const b=$("gb");b.disabled=true;b.textContent="Envoi…";
 try{const r=await fetch(API+"padel_score",{method:"POST",headers:{...H,"Prefer":"return=minimal"},body:JSON.stringify({owner:own,court,k:ck,pk:D.pk,team,sc})});if(!r.ok)throw new Error("Erreur "+r.status);
 try{localStorage.setItem(sentK(D.pk),JSON.stringify(sc))}catch(e){}thanks(false,sc)}catch(e){b.disabled=false;b.textContent="✅ Réessayer";m.insertAdjacentHTML("beforeend",'<p class="err">Le score n’est pas parti ('+esc(e.message)+'). Vérifie ta connexion et réessaie, ou donne-le au juge-arbitre.</p>')}}
 function thanks(again,sc){m.innerHTML='<div class="big">✅</div><h1>'+(again?"Score déjà envoyé":"Merci, score envoyé !")+'</h1><p>Il sera validé dès que l’autre équipe aura envoyé <b>le même score</b>. Sinon, le juge-arbitre tranchera.</p><button class="b ln" onclick="try{localStorage.removeItem(sentK(D.pk))}catch(e){};pick()">✏️ Corriger notre envoi</button>'}
+/* n°682 : un joueur par ligne, NOM et prénom côte à côte ; trop long : prénom en initiale, puis texte un peu plus petit */
+const pn=L=>(L||[]).map(n=>'<span class="pn">'+esc(n)+'</span>').join("");
+function pfit(){document.querySelectorAll(".pn").forEach(e=>{if(e.scrollWidth<=e.clientWidth+1)return;const w=e.textContent.split(" "),k=w.findIndex(x=>x&&x!==x.toUpperCase());if(k>0)e.textContent=w.slice(0,k).join(" ")+" "+w.slice(k).map(x=>x.charAt(0).toUpperCase()+".").join(" ");let f=parseFloat(getComputedStyle(e).fontSize),n=0;while(e.scrollWidth>e.clientWidth+1&&f>10&&n++<12){f-=.5;e.style.fontSize=f+"px"}})}
+new MutationObserver(()=>setTimeout(pfit,0)).observe(document.getElementById("m"),{childList:true});
 load();
 </script></body></html>
