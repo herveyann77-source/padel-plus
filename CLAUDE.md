@@ -101,5 +101,10 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   façon cartes « Aujourd'hui » de l'App Store : Moi, Mon prochain tournoi, Calendrier Padel+, Mes statistiques
   + bandeau « EN DIRECT » le jour J. Défi et Jeux mis de côté. Idées : photo de profil (comme WhatsApp), barème de points
   du tournoi, tutos tactiques/exercices, question du jour (255 questions FFT, citer la source).
-- Notifications « C'est l'heure de ton match » (web push gratuit + Supabase), quand on attaquera Padel+ Joueur.
+- ✅ Notifications ACTIVÉES le 19/11 (n°686) : « 🎾 C'est à toi ! » part aux 4 joueurs quand Yann touche ▶ Lancer
+  (texte modifiable dans Paramètres › Padel+ Joueur, défaut « Rends-toi sur ta piste. », numéro de piste Non par défaut :
+  chez lui les numéros de piste sont flous). Rappel la veille à 18h avec l'heure de CONVOCATION (jamais l'heure d'un match).
+  Le joueur active dans Padel+ Joueur › Moi › « 🔔 Me prévenir » (iPhone : ajouter d'abord à l'écran d'accueil).
+  Supabase : padel_push, padel_push_cfg (privée), padel_push_sub, fonction padel-push, cron 'padel-veille'.
+- RÈGLE : JAMAIS l'heure d'un match visible avant le jour du tournoi (n°685 : liveData n'envoie pas « h » avant, pages joueurs l'effacent).
 - En attente de lui : bouton magique Moja (réponse du comité), inscriptions en ligne, appli App Store.
