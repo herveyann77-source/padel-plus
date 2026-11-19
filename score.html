@@ -20,8 +20,8 @@ h1{font-size:21px;margin:0 0 6px}p{margin:0 0 12px;color:var(--mu);line-height:1
 .row{align-items:stretch;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}.tm{min-width:0}.tm{display:flex;flex-direction:column}.tm .nums{margin-top:auto;padding-top:8px}
 .tm.me .nums button{background:#fff;box-shadow:0 0 0 1px #c9d4f5 inset}.tm.me .nums button.on{background:var(--ink);box-shadow:none}
 .wb{display:flex;align-items:center;gap:14px}.wb .wc{font-size:30px;flex:none;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid #ffcf3f;display:flex;align-items:center;justify-content:center}.wb .wn{flex:1;min-width:0}
-.wbox{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#fff1c2,#fff);border-radius:16px;padding:12px;margin:0 0 14px;font-weight:800}.wbox>div{flex:1;min-width:0}.wbox .wc{font-size:24px}.wg{background:#26357a;color:#ffcf3f;font-size:26px;border-radius:12px;padding:6px 14px}
-.lbox{color:var(--mu);font-weight:800;margin:-4px 0 6px}.nums.big{gap:8px}.nums.big button{font-size:24px;padding:14px 0}
+.wbox{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#fff1c2,#fff);border-radius:16px;padding:12px;margin:0 0 14px;font-weight:800}.wbox>div{flex:1;min-width:0}.wbox .wc{font-size:24px}
+.qs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:6px 0 14px}.qs button{border:2px solid var(--line);border-radius:14px;padding:16px 0;font-size:24px;font-weight:900;background:#fff;color:var(--tx)}.qs button.on{background:var(--ink);border-color:var(--ink);color:var(--lime)}
 </style></head><body><div class="c"><div class="hd"><img src="icon-192.png" alt=""><div><b>Padel+</b><small id="tt">Envoyer le score</small></div></div><div class="box" id="m"><p>Chargement…</p></div><div class="ft">Le juge-arbitre peut toujours corriger le score.</div></div>
 <script>
 const Q=new URLSearchParams(location.search),$=id=>document.getElementById(id),m=$("m");
@@ -42,10 +42,12 @@ function choose(i){team=i;SC=Array.from({length:D.n||1},()=>["",""]);if((D.n||1)
 /* n°683 : comme dans Padel+ : d’abord « Qui a gagné ? », puis les jeux de l’équipe qui a perdu (match en 1 set) */
 let WIN=null;
 function winS(){WIN=null;m.innerHTML='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Qui a gagné ?</h1><p>Touche l’équipe qui a gagné le match.</p>'+[0,1].map(x=>'<button class="b wb" onclick="pickW('+x+')"><span class="wc">🏆</span><span class="wn">'+(x==team?'<span class="vous">Vous</span>':'')+pn(D[x?"b":"a"])+'</span></button>').join("")+'<button class="b ln" onclick="pick()">← Changer d’équipe</button>'}
-function pickW(x){WIN=x;const mx=(D.mx||[9])[0]??9,lo=1-x;let h='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><div class="wbox"><span class="wc">🏆</span><div>'+pn(D[x?"b":"a"])+'</div><b class="wg">'+mx+'</b></div><h1>Combien de jeux pour l’autre équipe ?</h1><div class="lbox">'+pn(D[lo?"b":"a"])+'</div><div class="nums big">';
-for(let k=0;k<mx;k++)h+='<button class="'+(SC[0][lo]===String(k)?"on":"")+'" onclick="setL('+k+')">'+k+'</button>';
-h+='</div>'+(SC[0][lo]!==""?'<div class="sum">'+SC[0][x]+' - '+SC[0][lo]+'</div><button class="b go" id="gb" onclick="send()">✅ Envoyer ce score</button>':'')+'<button class="b ln" onclick="winS()">← Changer le vainqueur</button>';m.innerHTML=h}
-function setL(k){SC[0][WIN]=String((D.mx||[9])[0]??9);SC[0][1-WIN]=String(k);pickW(WIN)}
+function pickW(x){WIN=x;const L=preL(),lo=1-x,cur=SC[0][x]!==""?SC[0][x]+"-"+SC[0][lo]:"";let h='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><div class="wbox"><span class="wc">🏆</span><div>'+pn(D[x?"b":"a"])+'</div></div><h1>Le score</h1><p>Touche le score du match.</p><div class="qs">';
+L.forEach(p=>{h+='<button class="'+(cur==p[0]+"-"+p[1]?"on":"")+'" onclick="setL('+p[0]+','+p[1]+')">'+p[0]+'-'+p[1]+'</button>'});
+h+='</div>'+(cur?'<button class="b go" id="gb" onclick="send()">✅ Envoyer '+cur+'</button>':'')+'<button class="b ln" onclick="winS()">← Changer le vainqueur</button>';m.innerHTML=h}
+/* scores tout faits, comme dans Padel+ : 9-0 … 9-8 (6-0 … 7-6 en 7 jeux, 4-0 … 5-4 en 5 jeux) */
+function preL(){const M=(D.mx||[9])[0]??9;if(M==7)return [[6,0],[6,1],[6,2],[6,3],[6,4],[7,5],[7,6]];if(M==5)return [[4,0],[4,1],[4,2],[5,4]];const L=[];for(let l=0;l<M;l++)L.push([M,l]);return L}
+function setL(a,b){SC[0][WIN]=String(a);SC[0][1-WIN]=String(b);pickW(WIN)}
 function nums(s,x){const mx=(D.mx||[9])[s]??9,v=SC[s][x];let h="";for(let k=0;k<=mx;k++)h+='<button class="'+(String(k)===v?"on":"")+'" onclick="setv('+s+','+x+','+k+')">'+k+'</button>';return h}
 function setv(s,x,k){SC[s][x]=String(k);draw()}
 function draw(){const n=D.n||1;let h='<span class="lab">Piste '+court+' · '+esc(D.lab)+'</span><h1>Le score</h1><p>Touche le nombre de jeux de chaque équipe.</p>';
