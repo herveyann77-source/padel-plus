@@ -66,7 +66,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
 
 ## Idées du 12 novembre à mettre en place à partir du lundi 16/11 (dans cet ordre, image d'abord)
-1. **« Ta place dans le tournoi »** (page joueur + Padel+ Joueur) : cadre violet style B ; rang en très grand
+1. ✅ FAIT le 19/11 (n°679, page joueur, fonction placeCard) — **« Ta place dans le tournoi »** (page joueur + Padel+ Joueur) : cadre violet style B ; rang en très grand
    (« 10e sur 24 équipes inscrites »), pastille TS ou « Poule B · 2e de poule », liste de toutes les équipes
    (TS, trait, puis les autres), équipe du joueur surlignée en jaune avec « Toi », « toucher pour tout voir ».
    Dessin déjà validé dans le principe (ta-place.png), à installer après accord.
@@ -81,7 +81,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
    maquettes/vue-tv-vivante.png (sans la vidéo filmée).
 4b. **« Ce qu'il te faut pour te qualifier »** (appli joueurs seulement, idée du 12/11) : avant le dernier match de
    poule, dire au joueur le score nécessaire (ex. « gagne 9-0 : qualifié ; 9-1 : éliminé »), calculé selon les
-   règles de départage (points, diff. de sets, diff. de jeux, confrontation directe). N'existe pas encore.
+   règles de départage (points, diff. de sets, diff. de jeux, confrontation directe). EXISTE DÉJÀ dans joueur.html (fonction qualCard).
 5. **Photos et vidéos gratuites** partout où ça embellit (Padel+, Padel+ Joueur, Padel+ Club), jamais payant.
 7. **Lien Moja / inscriptions des clubs (idée du 12/11)** : rêve = quand un joueur s'inscrit sur le lien du club,
    l'inscription arrive aussi dans Padel+ sans aucune manipulation en plus pour le joueur ; et un lien avec Moja.
