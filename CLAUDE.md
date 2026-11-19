@@ -51,6 +51,9 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - « Matchs de classement » (pas « consolante ») ; pour éliminés en poule : seulement s'il le demande (Non par défaut).
 - Cartes de match : coupe devant le vainqueur (toucher = saisie du score), identiques en poules et tableau.
   Match terminé (n°680) : plus de balle ni de flèche ↺ dans l'en-tête ; toucher le titre = fenêtre avec « Reset du match ».
+- Page « Envoyer le score » (score.html, n°684) : le joueur touche son équipe, puis « Qui a gagné ? » (coupe), puis un score
+  tout fait (9-0 … 9-8 ; 6-0 … 7-6 ; 4-0 … 5-4), comme dans Padel+. Matchs en plusieurs sets : clavier par set (inchangé).
+- Noms trop longs (fiches équipes, page joueur, score) : prénom en initiale (« GOURDON-MARTINEZ A. »), jamais sous le nom.
 - Mail de convocation : grand bloc bleu marine avec l'heure en très grand, récap (tournoi, lieu + adresse, formule, matchs),
   bouton vert « ✅ Je confirme mon inscription » → joueur.html?c=1 : le joueur touche son nom, la confirmation part seule,
   puis il voit « Comment venir » (Itinéraire, Google Maps, Waze), agenda, équipe, poule avec astérisque (poules indicatives),
