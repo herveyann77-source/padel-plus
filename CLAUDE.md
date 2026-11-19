@@ -50,6 +50,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   poule ne se rencontrent qu'en finale ; exempts jamais affichés.
 - « Matchs de classement » (pas « consolante ») ; pour éliminés en poule : seulement s'il le demande (Non par défaut).
 - Cartes de match : coupe devant le vainqueur (toucher = saisie du score), identiques en poules et tableau.
+  Match terminé (n°680) : plus de balle ni de flèche ↺ dans l'en-tête ; toucher le titre = fenêtre avec « Reset du match ».
 - Mail de convocation : grand bloc bleu marine avec l'heure en très grand, récap (tournoi, lieu + adresse, formule, matchs),
   bouton vert « ✅ Je confirme mon inscription » → joueur.html?c=1 : le joueur touche son nom, la confirmation part seule,
   puis il voit « Comment venir » (Itinéraire, Google Maps, Waze), agenda, équipe, poule avec astérisque (poules indicatives),
@@ -73,10 +74,10 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 2. **Padel+ Joueur** — CAHIER DES CHARGES DE YANN : minimum de clics, maximum d'informations, ultra lisible,
    d'une simplicité déconcertante ; il laisse Claude libre d'utiliser tous ses outils (skills de design, Supabase,
    photos) : bon code couleur, animations « magiques » discrètes, quelque chose de vraiment génial. (voir plus bas) : mémorable, appli favorite, photos Unsplash, connexion licence + code.
-3. **Question du jour** : les 255 questions FFT dans Padel+ Joueur (et sur la Vue TV), réponse + source citée.
+3. ✅ TV FAIT le 19/11 (n°680, bandeau toutes les 70 s, tvQuizTick) — **Question du jour** : les 255 questions FFT dans Padel+ Joueur (et sur la Vue TV), réponse + source citée.
 4. **Vue TV vivante** : Yann ne filmera JAMAIS de points → abandon du « point du jour » filmé (ne plus le proposer).
    Garder : flèches ▲▼ dans les classements de poule (n'existent que dans le Défi), bandeau « ❓ question d'arbitrage,
-   réponse dans 8 s » (255 questions FFT), « le chiffre du tournoi ». Panneau de droite à repenser : « Prochains matchs /
+   réponse dans 8 s » (255 questions FFT), « le chiffre du tournoi » (existe déjà : défilé + page Stats). Panneau de droite à repenser : « Prochains matchs /
    C'est à vous · Piste N » et/ou courts clips d'ambiance gratuits (Pexels, domaine à autoriser). Maquette de départ :
    maquettes/vue-tv-vivante.png (sans la vidéo filmée).
 4b. **« Ce qu'il te faut pour te qualifier »** (appli joueurs seulement, idée du 12/11) : avant le dernier match de
