@@ -44,7 +44,7 @@ const LS=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){ret
 let D=null,me=LS("pl_me_"+pid),view=me?"me":(G0?"pools":"pick"),pq="",ciDone=LS("pl_ci_"+pid),gSel=G0,loadErr="",lastOk=0;
 if(CI&&!ciDone)view="ci";
 async function load(){if(!ref||!pid||!key){m.innerHTML='<div class="box"><h1>QR code incomplet</h1><p class="err">Demande le lien au juge-arbitre.</p></div>';return}
-try{const r=await fetch(RPC+"padel_live_get",{method:"POST",headers:H,body:JSON.stringify({pid})});if(!r.ok)throw new Error("Erreur "+r.status);const d=await r.json();if(!d||!d.T)throw new Error("Le tournoi n’est pas encore en ligne.");D=d;loadErr="";lastOk=Date.now()}catch(e){loadErr=e.message}draw()}
+try{const r=await fetch(RPC+"padel_live_get",{method:"POST",headers:H,body:JSON.stringify({pid})});if(!r.ok)throw new Error("Erreur "+r.status);const d=await r.json();if(!d||!d.T)throw new Error("Le tournoi n’est pas encore en ligne.");D=d;if(D.d&&D.d>new Date().toLocaleDateString("sv"))(D.M||[]).forEach(x=>{x.h=""});/* n°685 : jamais d’heure de match avant le jour du tournoi */loadErr="";lastOk=Date.now()}catch(e){loadErr=e.message}draw()}
 const pn=(t,k)=>{const p=D.T[t]&&D.T[t][k=="a"?0:1];return p?`<span class="nm"><b>${esc(p[0])}</b> ${esc(p[1])}</span>`:""};
 const team=t=>t==null||t<0||!D.T[t]?'<span class="nm" style="color:var(--mu)">à déterminer</span>':pn(t,"a")+pn(t,"b");
 const myM=()=>me?D.M.filter(x=>x.a==me.t||x.b==me.t):[];

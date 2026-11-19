@@ -163,7 +163,7 @@ function who(){if(!D||!me)return null;for(let t=0;t<D.T.length;t++){const T=D.T[
 if(me.t!=null&&D.T[me.t]){const p=D.T[me.t][me.k=="b"?1:0];if(p&&nz(p[0]+p[1])==nz(me.nn||""))return{t:me.t,k:me.k}}return null}
 async function load(force){if(busy)return;if(!ref||!key||(!pid&&!PL.length)){m.innerHTML='<div class="box"><h1>Lien incomplet</h1><p class="err">Demande le lien au juge-arbitre.</p></div>';return}
 if(!pid){D=null;draw();return}busy=true;
-try{const r=await fetch(API+"rpc/padel_live_get",{method:"POST",headers:H,body:JSON.stringify({pid})});if(!r.ok)throw new Error("Erreur "+r.status);const d=await r.json();if(d&&d.T){D=d;err="";last=Date.now()}else if(!D)err="wait"}catch(e){if(!D)err=e.message}busy=false;draw()}
+try{const r=await fetch(API+"rpc/padel_live_get",{method:"POST",headers:H,body:JSON.stringify({pid})});if(!r.ok)throw new Error("Erreur "+r.status);const d=await r.json();if(d&&d.T){D=d;if(D.d&&D.d>new Date().toLocaleDateString("sv"))(D.M||[]).forEach(x=>{x.h=""});/* n°685 : jamais d’heure de match avant le jour du tournoi */err="";last=Date.now()}else if(!D)err="wait"}catch(e){if(!D)err=e.message}busy=false;draw()}
 const todayS=()=>new Date().toLocaleDateString("sv");
 const fdate=d=>d?new Date(d+"T12:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}):"";
 const toMin=h=>{const x=/^(\d{1,2})[h:](\d{2})/.exec(h||"");return x?+x[1]*60+ +x[2]:null};
