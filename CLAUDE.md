@@ -37,6 +37,11 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 6. Lui dire : fermer complètement Padel+ et la rouvrir.
 
 ## Décisions déjà prises (ne pas reproposer autrement)
+- Cartes de match (décidé le 18-19/11, partout : Padel+, page joueurs/invités, Vue TV) : style « A2 » = ligne du
+  vainqueur sur bande bleue `#26357a` + trait jaune, sets gagnés dans une case jaune `#ffcf3f` (même ceux du perdant),
+  perdant en gris ; chaque match a sa couleur (bande à gauche + titre coloré : bleu, orange, vert, rose) ;
+  coupe du vainqueur = rond blanc, contour or (pour ne pas la confondre avec les cases jaunes).
+- Page du tournoi : bouton « 👀 Invité » pour suivre résultats, poules (classement en direct) et tableau sans jouer.
 - Fiches équipes : bande « Têtes de série » en haut (si plus de 4 TS : deux vagues, TS 1 à 4 / TS 5 à 8 par défaut,
   chacune avec son heure, glisser une fiche TS d'une vague à l'autre par appui long), trait de séparation, puis bande « Poules ».
 - Tirage : TS1 en bas, TS2 en haut, TS3/TS4 tirées au sort ; TS5 et TS6 jamais dans la même moitié ; deux équipes d'une même
