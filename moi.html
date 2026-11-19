@@ -148,7 +148,7 @@ function sheet(h){const o=document.createElement("div");o.className="sheet";o.on
 function vListe(){const L=(ME.tournois||[]).slice().sort((a,b)=>(b.d||"").localeCompare(a.d||"")),t=todayS();
 sheet(`<h2>Mes tournois <button onclick="this.closest('.sheet').remove()">✕</button></h2>${L.length?L.map(x=>{const d=x.d?new Date(x.d+"T12:00"):null;return `<button class="tr" onclick="openT('${esc(x.id)}')"><span class="d">${d?d.getDate():"–"}<small>${d?d.toLocaleDateString("fr-FR",{month:"short"}).toUpperCase():""}</small></span><span><b>${esc(tname(x))}</b><small>${esc(x.l||"")}</small></span>${x.d==t?'<span class="tag">EN DIRECT</span>':x.d>t?'<span class="tag" style="background:#2a3470;color:#fff">À VENIR</span>':""}</button>`}).join(""):'<div class="empty">Aucun tournoi pour l’instant.</div>'}`)}
 /* n°673 : notifications « C’est à toi ! » (actives quand PUSH_KEY est rempli, après l’installation côté Supabase) */
-const PUSH_KEY="";
+const PUSH_KEY="BDqRjsHPg6jGi-yDTyyXwQzIl0dcgVrXQAi2b7p5HFn6jWBsvVdH28s2ZdtPmFndRF7_kpRWB1sb-MOraCg5390";
 try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}
 const pushOK=()=>!!(PUSH_KEY&&"serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window);
 const b64u=x=>{const p="=".repeat((4-x.length%4)%4),r=atob((x+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from([...r].map(c=>c.charCodeAt(0)))};
