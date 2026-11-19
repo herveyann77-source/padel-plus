@@ -78,7 +78,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
    d'une simplicité déconcertante ; il laisse Claude libre d'utiliser tous ses outils (skills de design, Supabase,
    photos) : bon code couleur, animations « magiques » discrètes, quelque chose de vraiment génial. (voir plus bas) : mémorable, appli favorite, photos Unsplash, connexion licence + code.
 3. ✅ TV FAIT le 19/11 (n°680, bandeau toutes les 70 s, tvQuizTick) — **Question du jour** : les 255 questions FFT dans Padel+ Joueur (et sur la Vue TV), réponse + source citée.
-4. **Vue TV vivante** : Yann ne filmera JAMAIS de points → abandon du « point du jour » filmé (ne plus le proposer).
+4. ✅ FAIT (clos le 19/11 avec Yann : ▲▼ n°673, question n°680, chiffre du tournoi déjà là ; panneau « Prochains matchs » retiré de la TV à sa demande, remplacé par les notifications ; vidéos d’ambiance abandonnées) — **Vue TV vivante** : Yann ne filmera JAMAIS de points → abandon du « point du jour » filmé (ne plus le proposer).
    Garder : flèches ▲▼ dans les classements de poule (n'existent que dans le Défi), bandeau « ❓ question d'arbitrage,
    réponse dans 8 s » (255 questions FFT), « le chiffre du tournoi » (existe déjà : défilé + page Stats). Panneau de droite à repenser : « Prochains matchs /
    C'est à vous · Piste N » et/ou courts clips d'ambiance gratuits (Pexels, domaine à autoriser). Maquette de départ :
