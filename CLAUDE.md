@@ -125,3 +125,18 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   Supabase : padel_push, padel_push_cfg (privée), padel_push_sub, fonction padel-push, cron 'padel-veille'.
 - RÈGLE : JAMAIS l'heure d'un match visible avant le jour du tournoi (n°685 : liveData n'envoie pas « h » avant, pages joueurs l'effacent).
 - En attente de lui : bouton magique Moja (réponse du comité), inscriptions en ligne, appli App Store.
+
+## Ajouts du 23-24/11 (n°702-703)
+- n°702 : ouverture rapide (sw.js : si le réseau ne répond pas en 3 s, la copie locale s'ouvre) ; Tournois : un seul bouton « Tout déplier / Tout plier » ;
+  barème des points en un seul exemplaire ; Règlement FFT aligné sur le guide 2027 (chapitre III, juillet 2026) : P3000 = 8 semaines, plus aucune mention « guide 2026 ».
+- n°703 : 🎙️ **Dicter** (bouton à côté de ⚡ Actions dans Poules et Tableau, fonctions dictGo/dictUnderstand/dictOk) : simple CHOIX, la saisie habituelle reste ;
+  rien n'est enregistré sans ✓ ; si plusieurs matchs possibles, le match « en cours » est préféré, sinon il propose la liste.
+- n°703 : **matchs en plusieurs sets** (décision de Yann) : chaque set pareil, « qui a gagné le set ? » puis le score, sets les uns sous les autres
+  (bigSetsHtml, bigSW, bigSS) ; super tie-break / 3e set seulement à 1 set partout ; enregistrement automatique dès que le match est gagné.
+  La coupe pré-choisit le vainqueur de chaque set (modifiable). Les formats en 1 set ne changent pas.
+- n°703 : vidéos d'aide joueurs dans `aide/` (confirmer-inscription.mp4, 19 s), bouton « 🎬 Comment faire ? » dans joueur.html (vidOpen) et lien dans le mail d'annonce Padel+ Joueur.
+  À faire ensuite (même style) : « Envoyer mon score », « Suivre le tournoi en direct ».
+- n°703 : correction du classement final : une équipe battue seule au 1er tour du tableau (ex. une seule 1/8) n'avait pas de place → place suivante.
+- **Banc d'essai** : `banc-essai/` (banc.js injecté dans index.html + run.py Playwright) joue ~1 430 formules × 2 (favoris / hasard) et vérifie
+  poules, classement final, onglets. À lancer avant les grosses modifications. Reste connu (à voir avec Yann) : dans quelques formules rares
+  (q=2 avec des poules impaires), deux équipes d'une même poule peuvent se croiser avant la finale.

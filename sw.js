@@ -1,6 +1,6 @@
-/* Padel+ — service worker n°702
+/* Padel+ — service worker n°703
    Réseau d'abord (toujours la dernière version), copie de secours pour marcher sans réseau. */
-const CACHE = "padelplus-702";
+const CACHE = "padelplus-703";
 const CORE = ["./", "./index.html", "./manifest.webmanifest"];
 
 self.addEventListener("install", e => {
@@ -21,7 +21,7 @@ self.addEventListener("fetch", e => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // Supabase, CDN… : on ne touche pas
-  /* n°702 : réseau d'abord, mais si le réseau ne répond pas en 3 s (4G faible au club),
+  /* n°703 : réseau d'abord, mais si le réseau ne répond pas en 3 s (4G faible au club),
      on ouvre tout de suite la copie gardée sur l'iPad ; la nouvelle version se range quand même pour la fois suivante. */
   const net = fetch(req, { cache: "no-store" }).then(res => {
     if (res && res.ok) {
