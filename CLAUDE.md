@@ -76,6 +76,9 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - Planning : déjà refait avec Yann (frise + grille), il en est plutôt content ; à revoir seulement à la marge.
   Grille (n°695) : colonne de gauche = heure du départ sur la 1re ligne, puis « suivi de » (jamais une heure commune
   à toute la ligne) ; chaque case garde son heure réelle (« commencé 10:04 ») ou prévue.
+- En-tête du tournoi (n°699) : titre « P500 Messieurs » + club · date centré, sur la même ligne que Retour.
+- Cloud (n°699) : « Conflit cloud » faux positif quand le réseau est faible (envoi arrivé, réponse perdue) → corrigé
+  (SB.sent : rev + heure de l'envoi, vérifiés avant de crier au conflit). Ne jamais lui faire toucher « Récupérer » en tournoi.
 - Couleurs : bleu marine `#141c4a` / `#101d5a` et vert balle `#b6ef2a`. Logo « Le smash ».
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
 
