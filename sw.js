@@ -1,6 +1,6 @@
-/* Padel+ — service worker n°701
+/* Padel+ — service worker n°702
    Réseau d'abord (toujours la dernière version), copie de secours pour marcher sans réseau. */
-const CACHE = "padelplus-701";
+const CACHE = "padelplus-702";
 const CORE = ["./", "./index.html", "./manifest.webmanifest"];
 
 self.addEventListener("install", e => {
@@ -21,19 +21,24 @@ self.addEventListener("fetch", e => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // Supabase, CDN… : on ne touche pas
-  e.respondWith(
-    fetch(req, { cache: "no-store" })
-      .then(res => {
-        if (res && res.ok) {
-          const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
-        }
-        return res;
-      })
-      .catch(() =>
-        caches.match(req).then(r => r || (req.mode === "navigate" ? caches.match("./index.html") : undefined))
-      )
-  );
+  /* n°702 : réseau d'abord, mais si le réseau ne répond pas en 3 s (4G faible au club),
+     on ouvre tout de suite la copie gardée sur l'iPad ; la nouvelle version se range quand même pour la fois suivante. */
+  const net = fetch(req, { cache: "no-store" }).then(res => {
+    if (res && res.ok) {
+      const copy = res.clone();
+      caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
+    }
+    return res;
+  });
+  const local = () => caches.match(req).then(r => r || (req.mode === "navigate" ? caches.match("./index.html") : undefined));
+  e.waitUntil(net.catch(() => {}));
+  e.respondWith(new Promise(resolve => {
+    let done = false;
+    const give = r => { if (!done && r) { done = true; resolve(r); } };
+    const t = setTimeout(() => local().then(r => give(r)), 3000);
+    net.then(r => { clearTimeout(t); give(r); })
+       .catch(() => { clearTimeout(t); local().then(r => r ? give(r) : (done = true, resolve(Response.error()))); });
+  }));
 });
 
 /* n°673 : notifications Padel+ Joueur (« C'est à toi ! », rappel de la veille) */
