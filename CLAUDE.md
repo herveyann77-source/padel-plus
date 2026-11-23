@@ -49,7 +49,8 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   (en-tête un peu plus foncé), pas de rouge. Validé par Yann. Match prêt (les 2 équipes arrivées,
   4 boutons verts) : il monte en haut à gauche ; ordre dans une poule (n°690) : 1) matchs TERMINÉS dans l'ordre où ils ont fini (en haut à gauche, à droite, 2e ligne…),
   2) match en cours, 3) matchs prêts, 4) les autres ; quand la poule est entièrement finie : ordre normal (fonctions mFin, mRdy).
-- Balles neuves (n°691) : sur un match terminé, la pastille verte « 🎾 Balles neuves » reste affichée (S.bal).
+- Balles neuves (n°693) : sur un match terminé, l'ICÔNE balle 🎾 reste (pas de texte) : verte = balles neuves données,
+  pointillés = non ; toujours touchable (S.bal, togBal). Exception à la règle n°680 « plus de balle sur un match fini ».
 - Page du tournoi : bouton « 👀 Invité » pour suivre résultats, poules (classement en direct) et tableau sans jouer.
 - Fiches équipes : bande « Têtes de série » en haut (si plus de 4 TS : deux vagues, TS 1 à 4 / TS 5 à 8 par défaut,
   chacune avec son heure, glisser une fiche TS d'une vague à l'autre par appui long), trait de séparation, puis bande « Poules ».
