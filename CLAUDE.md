@@ -45,7 +45,8 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   perdant en gris ; « Q » gris clair ; une fois fini : pas de coupe grise chez le perdant (invisible mais touchable),
   pas de « Piste – ». Coupe du vainqueur = rond blanc, contour or. Vue TV (fond foncé) : garde la bande bleue.
   Yann ne veut pas de bandes foncées pleines (effet damier quand le gagnant change de ligne) ni de couleurs par match.
-- Match en cours (n°689) : gros contour (5 px) de la couleur de la poule, pas de rouge. Match prêt (les 2 équipes arrivées,
+- Match en cours (n°689/692) : gros contour (5 px) de la couleur de la poule + toute la case teintée très clair de cette couleur
+  (en-tête un peu plus foncé), pas de rouge. Validé par Yann. Match prêt (les 2 équipes arrivées,
   4 boutons verts) : il monte en haut à gauche ; ordre dans une poule (n°690) : 1) matchs TERMINÉS dans l'ordre où ils ont fini (en haut à gauche, à droite, 2e ligne…),
   2) match en cours, 3) matchs prêts, 4) les autres ; quand la poule est entièrement finie : ordre normal (fonctions mFin, mRdy).
 - Balles neuves (n°691) : sur un match terminé, la pastille verte « 🎾 Balles neuves » reste affichée (S.bal).
