@@ -68,17 +68,21 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   « Bon à savoir ». Pas de numéro de piste annoncé à l'avance (seulement « C'est à toi · Piste N » quand le match est lancé).
 - Annonces de tournois : lien d'inscription du club (Mes clubs → « Lien d'inscription des joueurs », jamais pour Lésigny),
   pas de nombre de places (les inscriptions ne passent pas par l'appli). Canaux WhatsApp par catégorie (lien collé une fois).
+- Planning tableau (n°700, ordre de Yann) : quarts dans l'ordre (Q1+Q2 ensemble = haut, puis Q3+Q4 = bas) ; un match attend
+  seulement SES 2 matchs d'origine (fonction feed) ; à heure égale : quart restant > match de classement > demi-finale ;
+  on enchaîne dès qu'une piste se libère.
 - Planning : finale + matchs de places (3e, 5e, 7e…) tous à la même heure, après la fin de TOUTES les demies ;
   en P500, demi-finale et finale = créneau d'1 heure (pas 45 min + 1 h).
 - Poules + tableau : les perdants d'un tour AVANT les quarts (1/8…) jouent UN SEUL match (perdant n°1 contre n°2,
   n°3 contre n°4…), puis fini (gagnants 9es, perdants 11es) ; perdants des quarts : classement complet (5e, 7e).
-  Un match de classement attend la fin du tour d'où viennent ses perdants.
+  Un match de classement attend seulement les 2 matchs d'où viennent ses perdants (n°700).
 - Planning : déjà refait avec Yann (frise + grille), il en est plutôt content ; à revoir seulement à la marge.
   Grille (n°695) : colonne de gauche = heure du départ sur la 1re ligne, puis « suivi de » (jamais une heure commune
   à toute la ligne) ; chaque case garde son heure réelle (« commencé 10:04 ») ou prévue.
 - En-tête du tournoi (n°699) : titre « P500 Messieurs » + club · date centré, sur la même ligne que Retour.
 - Cloud (n°699) : « Conflit cloud » faux positif quand le réseau est faible (envoi arrivé, réponse perdue) → corrigé
   (SB.sent : rev + heure de l'envoi, vérifiés avant de crier au conflit). Ne jamais lui faire toucher « Récupérer » en tournoi.
+- Barème des points (n°700) : toute la colonne du tournoi en jaune + « ⭐ ton tournoi ».
 - Couleurs : bleu marine `#141c4a` / `#101d5a` et vert balle `#b6ef2a`. Logo « Le smash ».
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
 
