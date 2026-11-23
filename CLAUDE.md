@@ -74,6 +74,8 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   n°3 contre n°4…), puis fini (gagnants 9es, perdants 11es) ; perdants des quarts : classement complet (5e, 7e).
   Un match de classement attend la fin du tour d'où viennent ses perdants.
 - Planning : déjà refait avec Yann (frise + grille), il en est plutôt content ; à revoir seulement à la marge.
+  Grille (n°695) : colonne de gauche = heure du départ sur la 1re ligne, puis « suivi de » (jamais une heure commune
+  à toute la ligne) ; chaque case garde son heure réelle (« commencé 10:04 ») ou prévue.
 - Couleurs : bleu marine `#141c4a` / `#101d5a` et vert balle `#b6ef2a`. Logo « Le smash ».
 - Il utilise Padel+ uniquement sur iPad (iPad Air 13").
 
