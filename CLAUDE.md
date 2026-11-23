@@ -46,7 +46,8 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   pas de « Piste – ». Coupe du vainqueur = rond blanc, contour or. Vue TV (fond foncé) : garde la bande bleue.
   Yann ne veut pas de bandes foncées pleines (effet damier quand le gagnant change de ligne) ni de couleurs par match.
 - Match en cours (n°689) : gros contour (5 px) de la couleur de la poule, pas de rouge. Match prêt (les 2 équipes arrivées,
-  4 boutons verts) : il monte en haut à gauche ; les matchs en cours restent tout en haut (fonction mRdy).
+  4 boutons verts) : il monte en haut à gauche ; ordre dans une poule (n°690) : 1) matchs TERMINÉS dans l'ordre où ils ont fini (en haut à gauche, à droite, 2e ligne…),
+  2) match en cours, 3) matchs prêts, 4) les autres ; quand la poule est entièrement finie : ordre normal (fonctions mFin, mRdy).
 - Page du tournoi : bouton « 👀 Invité » pour suivre résultats, poules (classement en direct) et tableau sans jouer.
 - Fiches équipes : bande « Têtes de série » en haut (si plus de 4 TS : deux vagues, TS 1 à 4 / TS 5 à 8 par défaut,
   chacune avec son heure, glisser une fiche TS d'une vague à l'autre par appui long), trait de séparation, puis bande « Poules ».
