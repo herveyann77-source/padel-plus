@@ -48,6 +48,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - Match en cours (n°689) : gros contour (5 px) de la couleur de la poule, pas de rouge. Match prêt (les 2 équipes arrivées,
   4 boutons verts) : il monte en haut à gauche ; ordre dans une poule (n°690) : 1) matchs TERMINÉS dans l'ordre où ils ont fini (en haut à gauche, à droite, 2e ligne…),
   2) match en cours, 3) matchs prêts, 4) les autres ; quand la poule est entièrement finie : ordre normal (fonctions mFin, mRdy).
+- Balles neuves (n°691) : sur un match terminé, la pastille verte « 🎾 Balles neuves » reste affichée (S.bal).
 - Page du tournoi : bouton « 👀 Invité » pour suivre résultats, poules (classement en direct) et tableau sans jouer.
 - Fiches équipes : bande « Têtes de série » en haut (si plus de 4 TS : deux vagues, TS 1 à 4 / TS 5 à 8 par défaut,
   chacune avec son heure, glisser une fiche TS d'une vague à l'autre par appui long), trait de séparation, puis bande « Poules ».
@@ -107,8 +108,8 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   + bandeau « EN DIRECT » le jour J. Défi et Jeux mis de côté. Idées : photo de profil (comme WhatsApp), barème de points
   du tournoi, tutos tactiques/exercices, question du jour (255 questions FFT, citer la source).
 - ✅ Notifications ACTIVÉES le 19/11 (n°686) : « 🎾 C'est à toi ! » part aux 4 joueurs quand Yann touche ▶ Lancer
-  (texte modifiable dans Paramètres › Padel+ Joueur, défaut « Rends-toi sur ta piste. », numéro de piste Non par défaut :
-  chez lui les numéros de piste sont flous). Rappel la veille à 18h avec l'heure de CONVOCATION (jamais l'heure d'un match).
+  (texte modifiable dans Paramètres › Padel+ Joueur). Depuis n°691 : numéro de piste AJOUTÉ par défaut
+  (Yann choisit la piste en lançant) → « Rends-toi sur la piste 3. » ; il peut remettre Non. Rappel la veille à 18h avec l'heure de CONVOCATION (jamais l'heure d'un match).
   Le joueur active dans Padel+ Joueur › Moi › « 🔔 Me prévenir » (iPhone : ajouter d'abord à l'écran d'accueil).
   Supabase : padel_push, padel_push_cfg (privée), padel_push_sub, fonction padel-push, cron 'padel-veille'.
 - RÈGLE : JAMAIS l'heure d'un match visible avant le jour du tournoi (n°685 : liveData n'envoie pas « h » avant, pages joueurs l'effacent).
