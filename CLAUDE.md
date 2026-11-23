@@ -16,6 +16,8 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 8. Appli épurée : regrouper le secondaire derrière « ⚡ Actions », proposer régulièrement des épurations franches.
 9. Il veut des améliorations faites directement (pas besoin de redemander pour chaque petite correction),
    mais **ne jamais publier sans son feu vert** sur la version à publier.
+10. **Bilan du tournoi TOUJOURS accessible depuis la fiche d'indemnité** (bouton « 📊 Bilan du tournoi », n°688, fonction indBil).
+    Il l'envoie à chaque club avec sa fiche. Avant toute modif de l'Indemnisation, du menu ou de Communication, vérifier que ce chemin marche encore.
 
 ## Fichiers
 - `index.html` : l'appli du juge-arbitre (≈1,2 Mo, tout-en-un). Version affichée : `Version 2 · n°XXX`.
