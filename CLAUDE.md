@@ -40,11 +40,13 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 
 ## Décisions déjà prises (ne pas reproposer autrement)
 - Cartes de match (décidé le 19/11, n°677, remplace le style « A2 ») : style « G » dans Padel+ et page joueurs :
-  une seule couleur (bande bleue `#3b6fd8` à gauche, en-tête neutre `#f4f6fb`, titre marine) ; ligne du vainqueur sur
+  bande à gauche de la COULEUR DE LA POULE (n°689, demande de Yann ; tableau : bleu `#3b6fd8`), en-tête neutre `#f4f6fb`, titre marine ; ligne du vainqueur sur
   léger dégradé jaune (`#fff1c2` → blanc) ; sets gagnés dans une case marine `#26357a` avec chiffre jaune `#ffcf3f` ;
   perdant en gris ; « Q » gris clair ; une fois fini : pas de coupe grise chez le perdant (invisible mais touchable),
   pas de « Piste – ». Coupe du vainqueur = rond blanc, contour or. Vue TV (fond foncé) : garde la bande bleue.
   Yann ne veut pas de bandes foncées pleines (effet damier quand le gagnant change de ligne) ni de couleurs par match.
+- Match en cours (n°689) : gros contour (5 px) de la couleur de la poule, pas de rouge. Match prêt (les 2 équipes arrivées,
+  4 boutons verts) : il monte en haut à gauche ; les matchs en cours restent tout en haut (fonction mRdy).
 - Page du tournoi : bouton « 👀 Invité » pour suivre résultats, poules (classement en direct) et tableau sans jouer.
 - Fiches équipes : bande « Têtes de série » en haut (si plus de 4 TS : deux vagues, TS 1 à 4 / TS 5 à 8 par défaut,
   chacune avec son heure, glisser une fiche TS d'une vague à l'autre par appui long), trait de séparation, puis bande « Poules ».
