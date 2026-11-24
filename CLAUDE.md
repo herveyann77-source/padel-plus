@@ -147,3 +147,6 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   flash victoire plein écran 5,6 s à chaque score validé (tvFxCheck/tvFxNext : coupe, vainqueurs, score qui se compte, balle) puis retour sur la poule du match ;
   classement vivant (tvFlip : les lignes glissent, points qui montent, ligne qui monte en vert) ; « C'EST LA FINALE » quand la finale est lancée (▶) ;
   « CHAMPIONS » + confettis quand la finale est saisie. Pas de flash pour un WO ni quand plus de 3 résultats arrivent d'un coup (synchro).
+- n°707 : **🎬 Le film du tournoi** (Classement final, à côté de « Partager l’image ») : vidéo 9:16 fabriquée dans l'iPad (canvas + MediaRecorder, mp4 sur iPad),
+  20-30 s : logo, catégorie/club/date, chiffres, CLASSEMENT COMPLET (défile du dernier au 1er, demandé par Yann), podium + champions + confettis, « Merci à tous » + prochain tournoi
+  de la même catégorie (pris dans les tournois à venir, jamais Lésigny). Le lien d'inscription du club (insL) part dans le MESSAGE du partage (+ bouton Copier le message). Fonctions filmMake/filmDraw/filmData.
