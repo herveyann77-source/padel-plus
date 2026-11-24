@@ -143,3 +143,7 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - n°704 : **Paiement rapide** — toucher le « prix ✎ » d'un joueur ouvre une fenêtre (15 à 50 €, Offert, autre montant ; fonctions qpPm/qpSetPr) ;
   prix manuel en jaune (p.prm), jamais écrasé par le tarif automatique Lésigny ; revenir à « À payer » efface le prix manuel.
 - n°705 : **Bilan (Indemnisation)** — sous le bilan : seulement « 📨 Bilan + fiche : un seul mail » + « ⚡ Actions » (Voir le mail, Imprimer/PDF, Envoyer le bilan seul, Copier le bilan ; variable BACT).
+- n°706 : **Vue TV « télé sport »** (accord de Yann le 24/11, « en pire des cas je demanderai d'en enlever un ») : volet vert PADEL+ entre deux pages (tvWipe, seulement quand la page change, pas les sous-pages) ;
+  flash victoire plein écran 5,6 s à chaque score validé (tvFxCheck/tvFxNext : coupe, vainqueurs, score qui se compte, balle) puis retour sur la poule du match ;
+  classement vivant (tvFlip : les lignes glissent, points qui montent, ligne qui monte en vert) ; « C'EST LA FINALE » quand la finale est lancée (▶) ;
+  « CHAMPIONS » + confettis quand la finale est saisie. Pas de flash pour un WO ni quand plus de 3 résultats arrivent d'un coup (synchro).
