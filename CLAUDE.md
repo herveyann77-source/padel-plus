@@ -140,3 +140,5 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - **Banc d'essai** : `banc-essai/` (banc.js injecté dans index.html + run.py Playwright) joue ~1 430 formules × 2 (favoris / hasard) et vérifie
   poules, classement final, onglets. À lancer avant les grosses modifications. Reste connu (à voir avec Yann) : dans quelques formules rares
   (q=2 avec des poules impaires), deux équipes d'une même poule peuvent se croiser avant la finale.
+- n°704 : **Paiement rapide** — toucher le « prix ✎ » d'un joueur ouvre une fenêtre (15 à 50 €, Offert, autre montant ; fonctions qpPm/qpSetPr) ;
+  prix manuel en jaune (p.prm), jamais écrasé par le tarif automatique Lésigny ; revenir à « À payer » efface le prix manuel.
