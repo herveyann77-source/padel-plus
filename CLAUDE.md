@@ -142,3 +142,4 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   (q=2 avec des poules impaires), deux équipes d'une même poule peuvent se croiser avant la finale.
 - n°704 : **Paiement rapide** — toucher le « prix ✎ » d'un joueur ouvre une fenêtre (15 à 50 €, Offert, autre montant ; fonctions qpPm/qpSetPr) ;
   prix manuel en jaune (p.prm), jamais écrasé par le tarif automatique Lésigny ; revenir à « À payer » efface le prix manuel.
+- n°705 : **Bilan (Indemnisation)** — sous le bilan : seulement « 📨 Bilan + fiche : un seul mail » + « ⚡ Actions » (Voir le mail, Imprimer/PDF, Envoyer le bilan seul, Copier le bilan ; variable BACT).
