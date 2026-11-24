@@ -1,6 +1,6 @@
-/* Padel+ — service worker n°707
+/* Padel+ — service worker n°708
    Réseau d'abord (toujours la dernière version), copie de secours pour marcher sans réseau. */
-const CACHE = "padelplus-707";
+const CACHE = "padelplus-708";
 const CORE = ["./", "./index.html", "./manifest.webmanifest"];
 
 self.addEventListener("install", e => {

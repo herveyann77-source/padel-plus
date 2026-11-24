@@ -150,3 +150,6 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - n°707 : **🎬 Le film du tournoi** (Classement final, à côté de « Partager l’image ») : vidéo 9:16 fabriquée dans l'iPad (canvas + MediaRecorder, mp4 sur iPad),
   20-30 s : logo, catégorie/club/date, chiffres, CLASSEMENT COMPLET (défile du dernier au 1er, demandé par Yann), podium + champions + confettis, « Merci à tous » + prochain tournoi
   de la même catégorie (pris dans les tournois à venir, jamais Lésigny). Le lien d'inscription du club (insL) part dans le MESSAGE du partage (+ bouton Copier le message). Fonctions filmMake/filmDraw/filmData.
+- n°708 : **Tirage au sort — choix de l'animation** (« Faire le tirage » et « Refaire » ouvrent drawPick) : « 🎾 Le tableau » (l'ancienne, drawShow, gardée) ou
+  « 🎱 Les boules » (bdrShow : scène dorée, bocal en verre, boules nacrées ; TS1/TS2 placées d'office, TS3+ : la boule dit HAUT/BAS, qualifiés : la boule s'ouvre et
+  l'équipe file à sa place ; exempts jamais affichés ; ⏭ Passer, 🔊). Le dernier choix est retenu (JA.dstyle). Le tirage lui-même (doDraw) ne change pas.
