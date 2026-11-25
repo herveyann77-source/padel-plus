@@ -183,7 +183,7 @@ function players(){const L=[];D.T.forEach((T,t)=>{if(T[2])return;[0,1].forEach(j
 const GK="pj_guest_"+(pid||own);
 function guestOn(){LW(GK,1);tab="tab";draw();scrollTo(0,0)}
 function guestOff(){LW(GK,0);tab="moi";draw();scrollTo(0,0)}
-async function shareLive(){const u=location.href.replace(/([?&])c=1&?/,"$1").replace(/[?&]$/,""),t="Suis le tournoi "+((D&&D.c)||"de padel")+" en direct";try{if(navigator.share){await navigator.share({title:t,text:t,url:u});return}}catch(e){return}try{await navigator.clipboard.writeText(u);alert("Lien copié ✓")}catch(e){prompt("Copie ce lien :",u)}}
+async function shareLive(){const u=location.href.replace(/([?&])c=1&?/,"$1").replace(/[?&]$/,""),t="Suis le tournoi "+((D&&D.c)||"de padel")+" en direct",vd=new URL("aide/suivre-en-direct.mp4",location.href).href,tx=t+"\n🎬 Mode d’emploi (vidéo de 25 s) : "+vd;try{if(navigator.share){await navigator.share({title:t,text:tx,url:u});return}}catch(e){return}try{await navigator.clipboard.writeText(tx+"\n"+u);alert("Lien copié ✓")}catch(e){prompt("Copie ce lien :",u)}}
 const guestBtn=()=>AUTO?"":`<button class="bt sec gbtn" onclick="guestOn()">👀 Invité · voir les résultats<small>tu ne joues pas ? suis les poules et le tableau en direct</small></button>`;
 function pickSearch(){return `<div class="box"><h1>Qui es-tu ?</h1><p>Tape 2 ou 3 lettres de ton nom, puis touche-toi${AUTO?" pour confirmer ton inscription":""}. Ton téléphone s’en souviendra.</p><input class="sr" id="sr" placeholder="Ton nom…" value="${esc(pq)}" oninput="pq=this.value;$('pl').innerHTML=pickRows()" autocomplete="off" autocorrect="off" spellcheck="false"><div id="pl">${pickRows()}</div><button class="vidl" onclick="vidOpen('confirmer-inscription')">🎬 Comment faire ? <small>vidéo de 19 s</small></button></div>${guestBtn()}`}
 /* n°703 : petites vidéos d’aide */
@@ -264,6 +264,7 @@ h+=infoBox();return h}
 function waBox(){/* n°671 : canal WhatsApp de la catégorie */return D.w&&/^https:\/\//.test(D.w)?`<a class="bt wab" href="${esc(D.w)}" target="_blank" rel="noopener">💬 Rejoindre le canal WhatsApp ${esc(D.c||"")}<small>les prochains tournois de ta catégorie, en premier</small></a>`:""}
 function infoBox(){const rows=[];if(D.fm)rows.push(["Format des matchs",D.fm]);if(D.wu)rows.push(["Échauffement",D.wu+" minutes"]);if(D.np)rows.push(["Pistes",D.np]);if(D.a)rows.push(["Adresse",D.a]);
 return (rows.length||D.ru?`<div class="sh hs"><i>💡</i>Bon à savoir</div><div class="box sb hs">${rows.map(r=>`<div class="kv"><span>${esc(r[0])}</span><b>${esc(r[1])}</b></div>`).join("")}${D.ru?`<p style="margin:8px 0 0">${esc(D.ru)}</p>`:""}</div>`:"")+waBox()}
+const vidBox=()=>`<div class="box sb hs"><button class="vidl" style="margin-top:0" onclick="vidOpen('envoyer-score')">🎬 Comment envoyer mon score ? <small>28 s</small></button><button class="vidl" onclick="vidOpen('suivre-en-direct')">🎬 Comment ta famille peut suivre le tournoi ? <small>25 s</small></button></div>`;
 function vJourJ(w){const T=D.T[w.t],ar=T[w.k=="b"?4:3]||LS(doneK("ar")),x=nextOf(w);let h="";
 h+=x?heroNext(w,x):`<div class="hero"><div class="k">AUJOURD’HUI</div><div class="w">${T[9]?"Convocation "+esc(T[9].replace(":","h")):"C’est le jour J"}</div><div class="s">${esc(D.l||"")}</div></div>`;
 if(D.ci)h+=ar?`<div class="bt done">📍 Arrivée enregistrée</div>`:`<button class="bt" id="arb" onclick='arrived(${JSON.stringify(w)})'>📍 Je suis arrivé</button>`;
@@ -305,7 +306,7 @@ const ph=phase(w),P=PH[ph];$("ph").innerHTML=`<span class="ph" style="background
 const showTabs=ph=="pendant"||ph=="apres"||ph=="jourj";tb.style.display=showTabs?"flex":"none";if(!showTabs)tab="moi";
 tb.innerHTML=[["moi","🎾","Moi"],["tab","🏆","Tableau"],["pistes","📍","Pistes"]].map(([k,i,l])=>`<button class="${tab==k?"on":""}" onclick="tab='${k}';draw();scrollTo(0,0)"><i>${i}</i>${l}</button>`).join("");
 const p=D.T[w.t][w.k=="b"?1:0],bar=`<div class="box" style="display:flex;align-items:center;gap:10px;padding:11px 14px"><span class="nm" style="flex:1;font-size:16px"><b>${esc(p[0])}</b> ${esc(p[1])}</span><button onclick="forget()" style="border:0;background:none;color:var(--mu);font-weight:800;font-family:inherit;font-size:13px;cursor:pointer">Pas moi ?</button></div>`;
-let h="";if(tab=="tab")h=vTableau(w);else if(tab=="pistes")h=vPistes(w);else h=bar+(ph=="avant"?vAvant(w):ph=="jourj"?vJourJ(w):ph=="pendant"?vPendant(w):vApres(w))+a2h();
+let h="";if(tab=="tab")h=vTableau(w);else if(tab=="pistes")h=vPistes(w);else h=bar+(ph=="avant"?vAvant(w):ph=="jourj"?vJourJ(w):ph=="pendant"?vPendant(w):vApres(w))+(ph!="avant"&&ph!="jourj"&&ph!="pendant"?"":vidBox())+a2h();
 m.innerHTML=h+(last?`<div class="upd">Mis à jour à ${new Date(last).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"})} · se met à jour tout seul</div>`:"")}
 load(true);setInterval(()=>{if(document.visibilityState=="visible")load()},20000);document.addEventListener("visibilitychange",()=>{if(document.visibilityState=="visible")load(true)});setInterval(()=>{if(document.visibilityState=="visible"&&D&&!document.activeElement.matches("input"))draw()},60000);
 

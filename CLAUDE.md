@@ -153,3 +153,12 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - n°708 : **Tirage au sort — choix de l'animation** (« Faire le tirage » et « Refaire » ouvrent drawPick) : « 🎾 Le tableau » (l'ancienne, drawShow, gardée) ou
   « 🎱 Les boules » (bdrShow : scène dorée, bocal en verre, boules nacrées ; TS1/TS2 placées d'office, TS3+ : la boule dit HAUT/BAS, qualifiés : la boule s'ouvre et
   l'équipe file à sa place ; exempts jamais affichés ; ⏭ Passer, 🔊). Le dernier choix est retenu (JA.dstyle). Le tirage lui-même (doDraw) ne change pas.
+- n°709 (préparé le 25/11) : **Envoyer le score (score.html) refait avec Yann** : toute la poule dans l'ordre (court_get renvoie `pl`, fonction pscPool), le joueur touche le match qui vient
+  d'avoir lieu, puis « Qui a gagné ? » (les 2 équipes en haut) + UN SEUL tableau de scores dessous, puis Envoyer ; retour à la liste, scores entrés restent affichés (⏳ envoyé).
+  **Plus de question « ton équipe » ni de double validation** (décision de Yann) : le premier score envoyé est appliqué tout de suite, il corrige si besoin. Yann ne colle PAS de QR code
+  sur les pistes : on passe par « Mon tournoi » › « 🎾 Envoyer le score ». Vidéos d'aide `aide/envoyer-score.mp4` (28 s) et `aide/suivre-en-direct.mp4` (25 s, pour les INVITÉS :
+  lien du direct + « 👀 Invité » ; jamais de passage par le bouton « Je confirme mon inscription » dans une vidéo de score). Lien de la vidéo score ajouté à chaque convocation (cfVid),
+  lien de la vidéo invités ajouté au message « Partager le direct » (joueur.html shareLive). Fenêtre « Clôturer » : étape 5 facultative « 🎬 Le film du tournoi » (S.filmAt).
+- n°709 **ménage validé par Yann** : A) plus de barre « x/y matchs joués » ni de texte « N matchs à jouer » en haut des pages (reste le bouton « Voir les pistes ») ;
+  B) bouton Annuler du menu discret (contour fin) ; C) classement provisoire : une ligne « ⏳ Encore en course au tableau (N équipes) » puis les équipes sur une ligne, sans texte répété ;
+  D) pas de barre du tournoi (Préparer, Convoquer…) sur Paramètres, Plus et Formule.
