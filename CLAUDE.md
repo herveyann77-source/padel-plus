@@ -164,3 +164,6 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   D) pas de barre du tournoi (Préparer, Convoquer…) sur Paramètres, Plus et Formule.
 - n°710 : **faux « conflit cloud »** (Yann quitte Padel+ pendant un envoi → réponse perdue) : chaque appareil a un numéro DEVID (localStorage pp_dev) envoyé dans les données ;
   si la version du cloud porte le DEVID de cet appareil, sbPush et sbCheck l'acceptent sans alerte. Rappel : ne jamais lui faire toucher « Récupérer » ; en cas de doute, vérifier dans Supabase (padel_sync) puis « Écraser le cloud ».
+- n°711 : **Indemnités en 3 états** (page « Indemnisation · tous les tournois », indList/indRows) : 🔴 « ✉️ À envoyer » (fiche pas envoyée ; bouton indSend ouvre la fiche du tournoi, lien « déjà envoyée ? » = indOK),
+  🟠 « En attente » (fiche envoyée : o.ind.sent / o.ind.sf / JA.indOK ; « 📨 Fiche envoyée le … »), 🟢 « Reçu ». Totaux du haut : Reçu / Envoyé · en attente / À envoyer ; clubs et mois séparent les deux montants.
+  Tournois d'avant le 9/11 comptés comme envoyés.
