@@ -167,3 +167,6 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - n°711 : **Indemnités en 3 états** (page « Indemnisation · tous les tournois », indList/indRows) : 🔴 « ✉️ À envoyer » (fiche pas envoyée ; bouton indSend ouvre la fiche du tournoi, lien « déjà envoyée ? » = indOK),
   🟠 « En attente » (fiche envoyée : o.ind.sent / o.ind.sf / JA.indOK ; « 📨 Fiche envoyée le … »), 🟢 « Reçu ». Totaux du haut : Reçu / Envoyé · en attente / À envoyer ; clubs et mois séparent les deux montants.
   Tournois d'avant le 9/11 comptés comme envoyés.
+- n°712 (27/11, en plein tournoi) : **rond de présence des fiches équipes** — sur l'iPad, toucher le petit rond ouvrait la fiche des 2 joueurs au lieu de passer « arrivé ».
+  La fiche appelle maintenant fcTap(event,i) : si le toucher est sur la ligne d'un joueur et à moins de 18 px à droite du rond, c'est le rond qui agit (cyP), sinon la fiche s'ouvre.
+  Zone touchable du rond agrandie (::after, 12 px autour), sans changement visible.
