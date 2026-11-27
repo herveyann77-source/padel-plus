@@ -162,3 +162,5 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
 - n°709 **ménage validé par Yann** : A) plus de barre « x/y matchs joués » ni de texte « N matchs à jouer » en haut des pages (reste le bouton « Voir les pistes ») ;
   B) bouton Annuler du menu discret (contour fin) ; C) classement provisoire : une ligne « ⏳ Encore en course au tableau (N équipes) » puis les équipes sur une ligne, sans texte répété ;
   D) pas de barre du tournoi (Préparer, Convoquer…) sur Paramètres, Plus et Formule.
+- n°710 : **faux « conflit cloud »** (Yann quitte Padel+ pendant un envoi → réponse perdue) : chaque appareil a un numéro DEVID (localStorage pp_dev) envoyé dans les données ;
+  si la version du cloud porte le DEVID de cet appareil, sbPush et sbCheck l'acceptent sans alerte. Rappel : ne jamais lui faire toucher « Récupérer » ; en cas de doute, vérifier dans Supabase (padel_sync) puis « Écraser le cloud ».
