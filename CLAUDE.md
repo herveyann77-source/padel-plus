@@ -172,3 +172,6 @@ Réponses : en français, courtes, un geste à la fois, comme « à un enfant de
   Zone touchable du rond agrandie (::after, 12 px autour), sans changement visible.
 - n°713 (27/11) : **balle des balles neuves bien centrée** — l'emoji 🎾 était décalé dans son rond sur iPad (Safari). La classe `.ball` (unique, utilisée partout) affiche
   maintenant une balle dessinée en SVG (fond CSS, 20 px, centrée), l'emoji reste dans le bouton mais invisible (font-size 0).
+- n°714 (28/11, accord de Yann « Tout ») : rond de présence des fiches équipes plus gros (25 px au lieu de 18, zone touchable +10 px) ;
+  Tableau : « 🎙️ Dicter » et « ⚡ Actions » sur la même ligne que « Tableau principal / Matchs de classement » (actBar dans tbar ; s'il n'y a qu'un bloc, actBar seul en haut),
+  titre « Tableau final » en double retiré (carte .tbmain sans h3). Audit des emojis dans des ronds : seule la balle était décalée (corrigée n°713), la coupe .fxcup est centrée.
